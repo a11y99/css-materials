@@ -7,6 +7,7 @@ import Input from '@/components/Input';
 import AlertDialog from '@/components/AlertDialog';
 import Link from 'next/link';
 import Modal from '@/components/Modal';
+import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo, FiArrowRight } from "react-icons/fi";
 
 export default function Home() {
   const [sliderValue, setSliderValue] = useState<number>(50);
@@ -25,9 +26,10 @@ export default function Home() {
 
   return (
     <div className="w-[80%] mx-auto">
-      <div className="my-10 text-center">
+      <div className="my-10 flex flex-col items-center text-center">
         <h1 className="text-xl font-bold">CSS Materials</h1>
         <p className="text-sm opacity-50 mt-2.5">EN / JA</p>
+        <p className="text-sm mt-2.5"><Link href="/example" className="flex underline items-center">Example<FiArrowRight className="ml-0.5" /></Link></p>
       </div>
       <div className="bg-white shadow rounded-lg p-2.5">
         <h2 className="text-xl font-bold border-b mb-2.5">ボタン</h2>
@@ -48,6 +50,15 @@ export default function Home() {
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
         <h2 className="text-xl font-bold border-b mb-2.5">スイッチ</h2>
         <Switch />
+      </div>
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">アラート</h2>
+        <div className="space-y-2.5">
+          <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
+          <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
+          <div className="info-alert"><FiInfo className="text-blue-500 mr-2.5" />Info</div>
+          <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
+        </div>
       </div>
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
         <h2 className="text-xl font-bold border-b mb-2.5">入力欄</h2>
@@ -78,7 +89,7 @@ export default function Home() {
           footer={
             <div className="mt-2.5">
               <Button colorScheme="gray" onClick={toggleModal}>Cancel</Button>
-              <Button colorScheme="green" onClick={toggleModal} className="ml-1.5">Confirm</Button>
+              <Button colorScheme="blue" onClick={toggleModal} className="ml-1.5">Confirm</Button>
             </div>
           }
         >

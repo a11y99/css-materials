@@ -32,7 +32,7 @@ const Slider: React.FC<SliderProps> = ({ value, onChange }) => {
             id="myRange"
             onChange={handleSliderChange}
         />
-        <p>値: <span id="sliderValue">{sliderValue}</span></p>
+        <p>Value: <span id="sliderValue">{sliderValue}</span></p>
         </div>
     );
 };
