@@ -5,7 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CSS Materials"
+  title: "CSS Materials",
+  icons: {
+    icon: '/favicon.png',
+  }
 };
 
 export default function RootLayout({
