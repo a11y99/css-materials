@@ -1,63 +1,73 @@
 "use client"
 import React, { useState } from 'react';
 import Button from '@/components/Button';
-import Slider from '@/components/Slider';
-import Switch from '@/components/Switch';
 import Input from '@/components/Input';
-import AlertDialog from '@/components/AlertDialog';
+import Dropdown from '@/components/Dropdown';
+import Checkbox from '@/components/Checkbox';
 import Modal from '@/components/Modal';
-import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo, FiArrowRight, FiTwitter } from "react-icons/fi";
-import { FaGithub, FaGithubAlt, FaGithubSquare, FaLink, FaLinkedin, FaShare, FaTwitter } from 'react-icons/fa';
-import { FaX, FaXTwitter } from 'react-icons/fa6';
+import Header from '@/components/Header';
 
-export default function Home() {
-    const [sliderValue, setSliderValue] = useState<number>(50);
-    const [alertVisible, setAlertVisible] = useState<boolean>(false);
-    const [alertType, setAlertType] = useState<'default' | 'delete' | 'submit'>('default');
+export default function Example() {
+    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [role, setRole] = useState<string>('');
+    const [agreeTerms, setAgreeTerms] = useState<boolean>(false);
     const [modalVisible, setModalVisible] = useState<boolean>(false);
 
-    const toggleAlert = (type: 'default' | 'delete' | 'submit') => {
-        setAlertType(type);
-        setAlertVisible(!alertVisible);
-    };
+    const roles = ['User', 'Admin', 'Super Admin'];
 
-    const toggleModal = () => {
-        setModalVisible(!modalVisible);
+    const handleRegister = () => {
+        // 登録処理をここに実装します
+        setModalVisible(true);
     };
 
     return (
-        <div className="w-[80%] mx-auto my-10">
-            <div className="success-alert mb-5"><FiCheckCircle className="text-green-500 mr-2.5" />フォローしました。</div>
-            <div className="flex">
-                <img src="https://api.dicebear.com/9.x/dylan/svg?seed=Midnight" alt="avatar" className="w-32 rounded-full" />
-                <div className="flex flex-col ml-[16px] w-full">
-                    <div className="flex items-center">
-                        <div>
-                            <h1 className="font-semibold text-[32px]">Midnight</h1>
-                            <p className="text-md mt-[5px]">Hello World</p>
-                        </div>
-                        <div className="ml-auto">
-                            <Button colorScheme='blue'>Follow</Button>
-                        </div>
-                    </div>
-                    <div className="mt-auto flex space-x-1.5">
-                        <FaShare className="text-xl" />
-                        <FaGithub className="text-xl" />
-                        <FaLinkedin className="text-xl" />
-                    </div>
+        <div className="w-[80%] mx-auto">
+            <Header />
+            <div className="my-10 flex flex-col items-center text-center">
+                <img src="/logo.png" alt="Logo" className="w-[64px]" />
+                <h1 className="text-xl font-bold">Sign Up</h1>
+            </div>
+            <div className="bg-white shadow rounded-lg p-6">
+                <div className="mb-5">
+                    <Input placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div className="mb-5">
+                    <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                </div>
+                <div className="mb-5">
+                    <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <div className="mb-5">
+                    <Dropdown
+                        label="Select Role"
+                        options={roles}
+                        onSelect={setRole}
+                    />
+                </div>
+                <div className="mb-5">
+                    <Checkbox
+                        checked={agreeTerms}
+                        onChange={() => setAgreeTerms(!agreeTerms)}
+                    />
+                </div>
+                <div className="text-center">
+                    <Button colorScheme="blue" onClick={handleRegister}>Register</Button>
                 </div>
             </div>
-            <div className="mt-10">
-                <div className="p-2.5 bg-white border shadow rounded-md flex">
-                    <div>
-                        <p className="text-sm opacity-50">2024 July 28</p>
-                        <h1 className="text-lg font-medium">How to create an App on Next.js</h1>
+            <Modal
+                visible={modalVisible}
+                onClose={() => setModalVisible(false)}
+                title="Registration Successful"
+                footer={
+                    <div className="mt-2.5">
+                        <Button colorScheme="gray" onClick={() => setModalVisible(false)}>Close</Button>
                     </div>
-                    <div className="ml-auto">
-                        <Button colorScheme='gray'>Details</Button>
-                    </div>
-                </div>
-            </div>
+                }
+            >
+                <p>You have registered successfully!</p>
+            </Modal>
         </div>
     );
 }

@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 type InputProps = {
-    placeholder: string;
+    placeholder?: string;
+    type?: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input: React.FC<InputProps> = ({ placeholder }) => {
+const Input: React.FC<InputProps> = ({ placeholder, type = 'text', onChange }) => {
     return (
-        <input placeholder={placeholder} className="input" />
+        <input
+            type={type}
+            placeholder={placeholder}
+            onChange={onChange}
+            className="input"
+        />
     );
 };
 

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Button from '@/components/Button';
 import Slider from '@/components/Slider';
 import Switch from '@/components/Switch';
@@ -7,13 +7,18 @@ import Input from '@/components/Input';
 import AlertDialog from '@/components/AlertDialog';
 import Link from 'next/link';
 import Modal from '@/components/Modal';
-import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo, FiArrowRight } from "react-icons/fi";
+import Dropdown from '@/components/Dropdown';
+import Checkbox from '@/components/Checkbox';
+import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
+import Header from '@/components/Header';
 
 export default function Home() {
   const [sliderValue, setSliderValue] = useState<number>(50);
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
   const [alertType, setAlertType] = useState<'default' | 'delete' | 'submit'>('default');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [query, setQuery] = useState<string>('');
+  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
 
   const toggleAlert = (type: 'default' | 'delete' | 'submit') => {
     setAlertType(type);
@@ -24,35 +29,44 @@ export default function Home() {
     setModalVisible(!modalVisible);
   };
 
-  return (
-    <div className="w-[80%] mx-auto">
-      <div className="my-10 flex flex-col items-center text-center">
-        <h1 className="text-xl font-bold">CSS Materials</h1>
-        <p className="text-sm opacity-50 mt-2.5">EN / JA</p>
-        <p className="text-sm mt-2.5"><Link href="/example" className="flex underline items-center">Example<FiArrowRight className="ml-0.5" /></Link></p>
-      </div>
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value.toLowerCase());
+  };
+
+  const handleDropdownSelect = (option: string) => {
+    console.log("Selected option:", option);
+  };
+
+  const components = [
+    { name: 'Button', content: (
       <div className="bg-white shadow rounded-lg p-2.5">
-        <h2 className="text-xl font-bold border-b mb-2.5">ボタン</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Button</h2>
         <div className="space-x-1.5">
           <Button colorScheme="red">Delete</Button>
-          <Button colorScheme="orange">新規作成</Button>
-          <Button colorScheme="yellow">お気に入り</Button>
+          <Button colorScheme="orange">Create</Button>
+          <Button colorScheme="yellow">Star</Button>
           <Button colorScheme="green">Submit</Button>
-          <Button colorScheme="blue">送信</Button>
-          <Button colorScheme="purple">返信</Button>
-          <Button colorScheme="gray">詳細</Button>
+          <Button colorScheme="blue">Send</Button>
+          <Button colorScheme="purple">Reply</Button>
+          <Button colorScheme="gray">Detail</Button>
         </div>
       </div>
+    ) },
+    { name: 'Slider', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">スライダー</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Slider</h2>
         <Slider value={sliderValue} onChange={setSliderValue} />
       </div>
+    ) },
+    { name: 'Switch', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">スイッチ</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Switch</h2>
         <Switch />
       </div>
+    ) },
+    { name: 'Alert', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">アラート</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Alert</h2>
         <div className="space-y-2.5">
           <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
           <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
@@ -60,12 +74,16 @@ export default function Home() {
           <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
         </div>
       </div>
+    ) },
+    { name: 'Input', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">入力欄</h2>
-        <Input placeholder='表示名を入力...' />
+        <h2 className="text-xl font-bold border-b mb-2.5">Input</h2>
+        <Input placeholder='You can freely choose the placeholder.' />
       </div>
+    ) },
+    { name: 'Alert Dialog', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">アラートダイアログ</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Alert Dialog</h2>
         <div className="space-x-1.5">
           <Button colorScheme="blue" onClick={() => toggleAlert('default')}>Show Default Alert</Button>
           <Button colorScheme="red" onClick={() => toggleAlert('delete')}>Show Delete Alert</Button>
@@ -79,8 +97,10 @@ export default function Home() {
           type={alertType}
         />
       </div>
+    ) },
+    { name: 'Modal', content: (
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">モーダル</h2>
+        <h2 className="text-xl font-bold border-b mb-2.5">Modal</h2>
         <Button colorScheme="blue" onClick={toggleModal}>Show Modal</Button>
         <Modal
           visible={modalVisible}
@@ -96,6 +116,53 @@ export default function Home() {
           <p>This is the modal content with a custom footer.</p>
         </Modal>
       </div>
+    ) },
+    { name: 'Dropdown', content: (
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">Dropdown</h2>
+        <Dropdown
+          label="Select an option"
+          options={['Option 1', 'Option 2', 'Option 3']}
+          onSelect={handleDropdownSelect}
+        />
+      </div>
+    ) },
+    { name: 'Checkbox', content: (
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">Checkbox</h2>
+        <Checkbox
+          checked={checkboxChecked}
+          onChange={(e) => setCheckboxChecked(e.target.checked)}
+        />
+      </div>
+    ) },
+  ];
+
+  const filteredComponents = useMemo(() => {
+    return components.filter(component =>
+      component.name.toLowerCase().includes(query)
+    );
+  }, [query, components]);
+
+  return (
+    <div className="w-[80%] mx-auto">
+      <Header />
+      {/* Top */}
+      <div className="my-10 flex flex-col items-center text-center">
+        <img src="/logo.png" alt="Logo" className="w-[64px]" />
+        <h1 className="text-xl font-bold">CSS Materials</h1>
+      </div>
+      {/* Search Components */}
+      <div className="mb-5" id="components">
+        <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
+      </div>
+      {/* Components */}
+      {filteredComponents.map((component, index) => (
+        <div key={index}>
+          {component.content}
+        </div>
+      ))}
+      {/* Footer */}
       <div className="my-10 text-center">
         <h1 className="text-xl font-bold">Thank you for watching this page!</h1>
         <p className="text-sm mt-2.5">Copyright &copy; 2024 <Link href="https://x.com/m_hono_104" className="underline">hono</Link> All Rights Reserved.</p>
