@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Modal from '@/components/Modal';
 import Dropdown from '@/components/Dropdown';
 import Checkbox from '@/components/Checkbox';
+import Radio from '@/components/Radio';
 import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
 import Header from '@/components/Header';
 
@@ -19,6 +20,7 @@ export default function Home() {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [radioValue, setRadioValue] = useState<string>('option1');
 
   const toggleAlert = (type: 'default' | 'delete' | 'submit') => {
     setAlertType(type);
@@ -133,7 +135,33 @@ export default function Home() {
         <Checkbox
           checked={checkboxChecked}
           onChange={(e) => setCheckboxChecked(e.target.checked)}
+          label="I agree to the terms and conditions"
         />
+      </div>
+    ) },
+    { name: 'Radio', content: (
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">Radio</h2>
+        <div className="space-y-2.5 flex flex-col">
+          <Radio
+            checked={radioValue === 'option1'}
+            onChange={(e) => setRadioValue('option1')}
+            label="Option 1"
+            name="radioGroup"
+          />
+          <Radio
+            checked={radioValue === 'option2'}
+            onChange={(e) => setRadioValue('option2')}
+            label="Option 2"
+            name="radioGroup"
+          />
+          <Radio
+            checked={radioValue === 'option3'}
+            onChange={(e) => setRadioValue('option3')}
+            label="Option 3"
+            name="radioGroup"
+          />
+        </div>
       </div>
     ) },
   ];

@@ -237,9 +237,63 @@
 }
 
 /* checkbox */
-.form-checkbox:checked {
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+}
+.custom-checkbox::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
   background-color: #2da0ff;
+  border-radius: 2px;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s;
+}
+.form-checkbox:checked + .custom-checkbox {
   border-color: #2da0ff;
+}
+.form-checkbox:checked + .custom-checkbox::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* radio */
+.custom-radio {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+}
+.custom-radio::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #2da0ff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s;
+}
+.form-radio:checked + .custom-radio {
+  border-color: #2da0ff;
+}
+.form-radio:checked + .custom-radio::after {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @keyframes fadeIn {
