@@ -12,6 +12,8 @@ import Checkbox from '@/components/Checkbox';
 import Radio from '@/components/Radio';
 import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
 import Header from '@/components/Header';
+import Card from '@/components/Card';
+import Code from '@/components/Code';
 
 export default function Home() {
   const [sliderValue, setSliderValue] = useState<number>(50);
@@ -40,7 +42,9 @@ export default function Home() {
   const components = [
     { name: 'Button', content: (
       <div className="bg-white shadow rounded-lg p-2.5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Button</h2>
+        <Link href="/components/button">
+          <h2 className="text-xl font-bold border-b mb-2.5">Button</h2>
+        </Link>
         <div className="space-x-1.5">
           <Button colorScheme="red">Delete</Button>
           <Button colorScheme="orange">Create</Button>
@@ -156,6 +160,24 @@ export default function Home() {
             label="Option 3"
             name="radioGroup"
           />
+        </div>
+      </div>
+    ) },
+    { name: 'Card', content: (
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">Card</h2>
+        <div>
+          <Card title="Card Header">
+            Card Body
+          </Card>
+        </div>
+      </div>
+    ) },
+    { name: 'Code', content: (
+      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
+        <h2 className="text-xl font-bold border-b mb-2.5">Code</h2>
+        <div>
+        <Code language="html">{`<Button colorScheme="blue">Blue</Button>`}</Code>
         </div>
       </div>
     ) },

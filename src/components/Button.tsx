@@ -13,7 +13,7 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({ colorScheme, children, onClick, className, loading = false, disabled = false }) => {
     return (
         <button
-            className={`${colorScheme}-button ${className} flex items-center ${loading || disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`${colorScheme}-button ${className} inline-flex items-center ${loading || disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
             onClick={onClick}
             disabled={loading || disabled}
         >
