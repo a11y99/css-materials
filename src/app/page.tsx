@@ -16,14 +16,12 @@ import Header from '@/components/Header';
 export default function Home() {
   const [sliderValue, setSliderValue] = useState<number>(50);
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
-  const [alertType, setAlertType] = useState<'default' | 'delete' | 'submit'>('default');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [query, setQuery] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [radioValue, setRadioValue] = useState<string>('option1');
 
-  const toggleAlert = (type: 'default' | 'delete' | 'submit') => {
-    setAlertType(type);
+  const toggleAlert = () => {
     setAlertVisible(!alertVisible);
   };
 
@@ -87,16 +85,13 @@ export default function Home() {
       <div className="bg-white shadow rounded-lg p-2.5 mt-5">
         <h2 className="text-xl font-bold border-b mb-2.5">Alert Dialog</h2>
         <div className="space-x-1.5">
-          <Button colorScheme="blue" onClick={() => toggleAlert('default')}>Show Default Alert</Button>
-          <Button colorScheme="red" onClick={() => toggleAlert('delete')}>Show Delete Alert</Button>
-          <Button colorScheme="green" onClick={() => toggleAlert('submit')}>Show Submit Alert</Button>
+          <Button colorScheme="blue" onClick={toggleAlert}>Show Default Alert</Button>
         </div>
         <AlertDialog
           visible={alertVisible}
           onClose={() => setAlertVisible(false)}
           title="Alert"
           message="This is an alert dialog."
-          type={alertType}
         />
       </div>
     ) },
@@ -176,12 +171,12 @@ export default function Home() {
     <div className="w-[80%] mx-auto">
       <Header />
       {/* Top */}
-      <div className="my-10 flex flex-col items-center text-center">
-        <img src="/logo.png" alt="Logo" className="w-[64px]" />
-        <h1 className="text-xl font-bold">CSS Materials</h1>
+      <div className="my-10 flex flex-col items-center">
+        <img src="/cheese.png" className="w-[100px]" />
+        <img src="/text-logo.png" className="w-[200px]" />
       </div>
       {/* Search Components */}
-      <div className="mb-5" id="components">
+      <div className="mb-5">
         <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
       </div>
       {/* Components */}
