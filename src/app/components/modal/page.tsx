@@ -136,6 +136,7 @@ const ExampleWithFooter = () => {
                 }
             >
                 <p>This is the content of the modal with a custom footer.</p>
+                <img src="/chubbs/0.svg" />
             </Modal>
         </div>
     );
