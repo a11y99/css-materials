@@ -41,116 +41,82 @@ export default function Home() {
     };
 
     const components = [
+        { name: 'Alert', content: (
+            <Card title="Alert">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/alert.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Alert Dialog', content: (
+            <Card title="Alert Dialog">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/alert-dialog.png" />
+                </div>
+            </Card>
+        ) },
         { name: 'Button', content: (
-            <Card title="Button" link="/components/button">
-                <Button colorScheme='blue'>Button</Button>
+            <Card title="Button" href="/components/button">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/button.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Card', content: (
+            <Card title="Card">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/card.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Checkbox', content: (
+            <Card title="Checkbox">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/checkbox.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Code', content: (
+            <Card title="Code">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/code.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Input', content: (
+            <Card title="Input">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/input.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Modal', content: (
+            <Card title="Modal">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/modal.png" />
+                </div>
+            </Card>
+        ) },
+        { name: 'Radio', content: (
+            <Card title="Radio">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/radio.png" />
+                </div>
             </Card>
         ) },
         { name: 'Slider', content: (
-        <Card title="Slider">
-            <Slider value={sliderValue} onChange={setSliderValue} />
-        </Card>
+            <Card title="Slider">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/slider.png" />
+                </div>
+            </Card>
         ) },
         { name: 'Switch', content: (
-        <Card title="Switch">
-            <Switch />
-        </Card>
-        ) },
-        { name: 'Alert', content: (
-        <Card title="Alert">
-            <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
-            <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
-            <div className="info-alert"><FiInfo className="text-blue-500 mr-2.5" />Info</div>
-            <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
-        </Card>
-        ) },
-        { name: 'Input', content: (
-        <Card title="Input">
-            <Input placeholder='You can freely choose the placeholder.' />
-        </Card>
-        ) },
-        { name: 'Alert Dialog', content: (
-        <Card title="Alert Dialog">
-            <Button colorScheme="blue" onClick={toggleAlert}>Show Default Alert</Button>
-            <AlertDialog
-            visible={alertVisible}
-            onClose={() => setAlertVisible(false)}
-            title="Alert"
-            message="This is an alert dialog."
-            />
-        </Card>
-        ) },
-        { name: 'Modal', content: (
-        <Card title="Modal">
-            <Button colorScheme="blue" onClick={toggleModal}>Show Modal</Button>
-            <Modal
-            visible={modalVisible}
-            onClose={toggleModal}
-            title="Custom Modal"
-            footer={
-                <div className="mt-2.5">
-                <Button colorScheme="gray" onClick={toggleModal}>Cancel</Button>
-                <Button colorScheme="blue" onClick={toggleModal} className="ml-1.5">Confirm</Button>
+            <Card title="Switch">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/switch.png" />
                 </div>
-            }
-            >
-            <p>This is the modal content with a custom footer.</p>
-            </Modal>
-        </Card>
-        ) },
-        { name: 'Dropdown', content: (
-        <Card title="Dropdown">
-            <Dropdown
-            label="Select an option"
-            options={['Option 1', 'Option 2', 'Option 3']}
-            onSelect={handleDropdownSelect}
-            />
-        </Card>
-        ) },
-        { name: 'Checkbox', content: (
-        <Card title="Checkbox">
-            <Checkbox
-            checked={checkboxChecked}
-            onChange={(e) => setCheckboxChecked(e.target.checked)}
-            label="I agree to the terms and conditions"
-            />
-        </Card>
-        ) },
-        { name: 'Radio', content: (
-        <Card title="Radio">
-            <div className="space-y-2.5 flex flex-col">
-            <Radio
-                checked={radioValue === 'option1'}
-                onChange={(e) => setRadioValue('option1')}
-                label="Option 1"
-                name="radioGroup"
-            />
-            <Radio
-                checked={radioValue === 'option2'}
-                onChange={(e) => setRadioValue('option2')}
-                label="Option 2"
-                name="radioGroup"
-            />
-            <Radio
-                checked={radioValue === 'option3'}
-                onChange={(e) => setRadioValue('option3')}
-                label="Option 3"
-                name="radioGroup"
-            />
-            </div>
-        </Card>
-        ) },
-        { name: 'Card', content: (
-        <Card title="Card">
-            <Card title="Card Header">
-            Card Body
             </Card>
-        </Card>
-        ) },
-        { name: 'Code', content: (
-        <Card title="Code">
-            <Code language="html">{`<Button colorScheme="blue">Blue</Button>`}</Code>
-        </Card>
         ) },
     ];
 

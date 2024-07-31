@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
                 <div>
                     <h2 className="text-xl font-bold mb-5">Support</h2>
                     <ul className='space-y-2.5'>
-                        <li><Link href="#" className="hover:underline">FAQ</Link></li>
+                        <li><Link href="/faq" className="hover:underline">FAQ</Link></li>
                         <li><Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link></li>
                         <li><Link href="/terms" className="hover:underline">Terms of Service</Link></li>
                     </ul>
