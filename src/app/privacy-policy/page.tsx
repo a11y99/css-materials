@@ -32,13 +32,13 @@ const PrivacyPolicy: React.FC = () => {
                 {language === 'en' ? (
                     <>
                         <Card title="Your Privacy Matters">
-                            At CSS Materials, we value your privacy. That's why we don't collect any personal information from you. Enjoy our site with peace of mind!
+                            At CSS Materials, we value your privacy. That&apos;s why we don&apos;t collect any personal information from you. Enjoy our site with peace of mind!
                         </Card>
                         <Card title="No Cookies Here">
                             We respect your online experience and do not use cookies to track your activity or store any data.
                         </Card>
                         <Card title="No Third-Party Services">
-                            We don't use any third-party services that could collect your data. Your privacy is completely protected here.
+                            We don&apos;t use any third-party services that could collect your data. Your privacy is completely protected here.
                         </Card>
                     </>
                 ) : (

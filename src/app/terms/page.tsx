@@ -35,10 +35,10 @@ const Terms: React.FC = () => {
                             CSS Materials is a friendly place where you can find and use various components easily. Feel free to use anything here without asking for permission.
                         </Card>
                         <Card title="Your Responsibility">
-                            While using our components, please ensure you're following all relevant laws and regulations. It's important to be responsible and respectful towards others.
+                            While using our components, please ensure you&apos;re following all relevant laws and regulations. It&apos;s important to be responsible and respectful towards others.
                         </Card>
                         <Card title="Content Ownership">
-                            All the content you find here belongs to their respective creators. Please don't copy or distribute the content without proper authorization.
+                            All the content you find here belongs to their respective creators. Please don&apos;t copy or distribute the content without proper authorization.
                         </Card>
                     </>
                 ) : (
