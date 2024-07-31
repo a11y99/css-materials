@@ -26,7 +26,7 @@ export default function Header() {
             </div>
             {isOpen && (
                 <div className="fixed left-0 top-[44px] w-full bg-white z-40 shadow-lg md:hidden">
-                    <div className="flex flex-col items-start px-5 py-2.5 space-y-2.5">
+                    <div className="flex flex-col items-start px-5 mt-2.5 pb-5 space-y-[15px]">
                         <Link href="/example">Example</Link>
                         <Link href="/components">Components</Link>
                         <Link href="https://github.com/hn-104/css-materials" className="flex items-center">GitHub<FiExternalLink className="ml-1.5" /></Link>
