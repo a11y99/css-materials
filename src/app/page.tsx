@@ -1,183 +1,61 @@
 "use client"
-import React, { useState, useMemo } from 'react';
-import Button from '@/components/Button';
-import Slider from '@/components/Slider';
-import Switch from '@/components/Switch';
-import Input from '@/components/Input';
-import AlertDialog from '@/components/AlertDialog';
-import Link from 'next/link';
-import Modal from '@/components/Modal';
-import Dropdown from '@/components/Dropdown';
-import Checkbox from '@/components/Checkbox';
-import Radio from '@/components/Radio';
-import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
+import React, { useState } from 'react';
 import Header from '@/components/Header';
+import Button from '@/components/Button';
+import { FaGithub } from 'react-icons/fa';
+import Link from 'next/link';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
+import Input from '@/components/Input';
+import AlertDialog from '@/components/AlertDialog';
 
 export default function Home() {
-  const [sliderValue, setSliderValue] = useState<number>(50);
-  const [alertVisible, setAlertVisible] = useState<boolean>(false);
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
-  const [query, setQuery] = useState<string>('');
-  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-  const [radioValue, setRadioValue] = useState<string>('option1');
-
-  const toggleAlert = () => {
-    setAlertVisible(!alertVisible);
-  };
-
-  const toggleModal = () => {
-    setModalVisible(!modalVisible);
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value.toLowerCase());
-  };
-
-  const handleDropdownSelect = (option: string) => {
-    console.log("Selected option:", option);
-  };
-
-  const components = [
-    { name: 'Button', content: (
-      <Card title="Button">
-        <Button colorScheme='blue'>Button</Button>
-      </Card>
-    ) },
-    { name: 'Slider', content: (
-      <Card title="Slider">
-        <Slider value={sliderValue} onChange={setSliderValue} />
-      </Card>
-    ) },
-    { name: 'Switch', content: (
-      <Card title="Switch">
-        <Switch />
-      </Card>
-    ) },
-    { name: 'Alert', content: (
-      <Card title="Alert">
-        <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
-        <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
-        <div className="info-alert"><FiInfo className="text-blue-500 mr-2.5" />Info</div>
-        <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
-      </Card>
-    ) },
-    { name: 'Input', content: (
-      <Card title="Input">
-        <Input placeholder='You can freely choose the placeholder.' />
-      </Card>
-    ) },
-    { name: 'Alert Dialog', content: (
-      <Card title="Alert Dialog">
-        <Button colorScheme="blue" onClick={toggleAlert}>Show Default Alert</Button>
-        <AlertDialog
-          visible={alertVisible}
-          onClose={() => setAlertVisible(false)}
-          title="Alert"
-          message="This is an alert dialog."
-        />
-      </Card>
-    ) },
-    { name: 'Modal', content: (
-      <Card title="Modal">
-        <Button colorScheme="blue" onClick={toggleModal}>Show Modal</Button>
-        <Modal
-          visible={modalVisible}
-          onClose={toggleModal}
-          title="Custom Modal"
-          footer={
-            <div className="mt-2.5">
-              <Button colorScheme="gray" onClick={toggleModal}>Cancel</Button>
-              <Button colorScheme="blue" onClick={toggleModal} className="ml-1.5">Confirm</Button>
-            </div>
-          }
-        >
-          <p>This is the modal content with a custom footer.</p>
-        </Modal>
-      </Card>
-    ) },
-    { name: 'Dropdown', content: (
-      <Card title="Dropdown">
-        <Dropdown
-          label="Select an option"
-          options={['Option 1', 'Option 2', 'Option 3']}
-          onSelect={handleDropdownSelect}
-        />
-      </Card>
-    ) },
-    { name: 'Checkbox', content: (
-      <Card title="Checkbox">
-        <Checkbox
-          checked={checkboxChecked}
-          onChange={(e) => setCheckboxChecked(e.target.checked)}
-          label="I agree to the terms and conditions"
-        />
-      </Card>
-    ) },
-    { name: 'Radio', content: (
-      <Card title="Radio">
-        <div className="space-y-2.5 flex flex-col">
-          <Radio
-            checked={radioValue === 'option1'}
-            onChange={(e) => setRadioValue('option1')}
-            label="Option 1"
-            name="radioGroup"
-          />
-          <Radio
-            checked={radioValue === 'option2'}
-            onChange={(e) => setRadioValue('option2')}
-            label="Option 2"
-            name="radioGroup"
-          />
-          <Radio
-            checked={radioValue === 'option3'}
-            onChange={(e) => setRadioValue('option3')}
-            label="Option 3"
-            name="radioGroup"
-          />
-        </div>
-      </Card>
-    ) },
-    { name: 'Card', content: (
-      <Card title="Card">
-        <Card title="Card Header">
-          Card Body
-        </Card>
-      </Card>
-    ) },
-    { name: 'Code', content: (
-      <Card title="Code">
-        <Code language="html">{`<Button colorScheme="blue">Blue</Button>`}</Code>
-      </Card>
-    ) },
-  ];
-
-  const filteredComponents = useMemo(() => {
-    return components.filter(component =>
-      component.name.toLowerCase().includes(query)
-    );
-  }, [query, components]);
-
   return (
     <div className="w-[80%] mx-auto">
       <Header />
-      {/* Top */}
-      <div className="my-10 flex flex-col items-center">
+      <div className="mt-10 flex flex-col items-center">
         <img src="/cheese.png" className="w-[100px]" />
         <img src="/text-logo.png" className="w-[200px]" />
       </div>
-      {/* Search Components */}
-      <div className="mb-5">
-        <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
+      <div className="mt-10 space-x-2.5 flex items-center justify-center">
+        <Button colorScheme='blue'>Get Started</Button>
+        <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray'><FaGithub className="mr-2.5 text-lg" />GitHub</Button></Link>
       </div>
-      {/* Components */}
-      <div className="space-y-5">
-        {filteredComponents.map((component, index) => (
-          <div key={index}>
-            {component.content}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <Card title="CSS Materials Launches Beta Version!">
+          <div className="flex flex-col h-20">
+            <p className="opacity-50 text-sm">Amazing Collection of Easy-to-Use Components!</p>
+            <p className="mt-auto text-sm">2024-07-31</p>
           </div>
-        ))}
+        </Card>
+        <Card title="XXXXX XXXXX XXXXX XXXXX">
+          <div className="flex flex-col h-20">
+            <p className="opacity-50 text-sm">XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX</p>
+            <p className="mt-auto text-sm">20XX-XX-XX</p>
+          </div>
+        </Card>
+        <Card title="XXXXX XXXXX XXXXX XXXXX">
+          <div className="flex flex-col h-20">
+            <p className="opacity-50 text-sm">XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX</p>
+            <p className="mt-auto text-sm">20XX-XX-XX</p>
+          </div>
+        </Card>
+      </div>
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-2">
+        <div>
+          <img src="/chubbs/2.svg" />
+        </div>
+        <div className="space-y-10">
+          <div className="space-y-5">
+            <h1 className="text-2xl font-bold">Abundant Components</h1>
+            <p className="text-lg opacity-50">A Collection of Beginner-Friendly, Easy-to-Use Components!</p>
+          </div>
+          <div>
+            <Link href="/components">
+              <Button colorScheme='purple'>Browse Components</Button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
