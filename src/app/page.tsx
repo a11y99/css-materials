@@ -41,67 +41,46 @@ export default function Home() {
 
   const components = [
     { name: 'Button', content: (
-      <div className="bg-white shadow rounded-lg p-2.5">
-        <Link href="/components/button">
-          <h2 className="text-xl font-bold border-b mb-2.5">Button</h2>
-        </Link>
-        <div className="space-x-1.5">
-          <Button colorScheme="red">Delete</Button>
-          <Button colorScheme="orange">Create</Button>
-          <Button colorScheme="yellow">Star</Button>
-          <Button colorScheme="green">Submit</Button>
-          <Button colorScheme="blue">Send</Button>
-          <Button colorScheme="purple">Reply</Button>
-          <Button colorScheme="gray">Detail</Button>
-        </div>
-      </div>
+      <Card title="Button">
+        <Button colorScheme='blue'>Button</Button>
+      </Card>
     ) },
     { name: 'Slider', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Slider</h2>
+      <Card title="Slider">
         <Slider value={sliderValue} onChange={setSliderValue} />
-      </div>
+      </Card>
     ) },
     { name: 'Switch', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Switch</h2>
+      <Card title="Switch">
         <Switch />
-      </div>
+      </Card>
     ) },
     { name: 'Alert', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Alert</h2>
-        <div className="space-y-2.5">
-          <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
-          <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
-          <div className="info-alert"><FiInfo className="text-blue-500 mr-2.5" />Info</div>
-          <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
-        </div>
-      </div>
+      <Card title="Alert">
+        <div className="success-alert"><FiCheckCircle className="text-green-500 mr-2.5" />Success</div>
+        <div className="error-alert"><FiXCircle className="text-red-500 mr-2.5" />Error</div>
+        <div className="info-alert"><FiInfo className="text-blue-500 mr-2.5" />Info</div>
+        <div className="warning-alert"><FiAlertCircle className="text-amber-500 mr-2.5" />Warning</div>
+      </Card>
     ) },
     { name: 'Input', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Input</h2>
+      <Card title="Input">
         <Input placeholder='You can freely choose the placeholder.' />
-      </div>
+      </Card>
     ) },
     { name: 'Alert Dialog', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Alert Dialog</h2>
-        <div className="space-x-1.5">
-          <Button colorScheme="blue" onClick={toggleAlert}>Show Default Alert</Button>
-        </div>
+      <Card title="Alert Dialog">
+        <Button colorScheme="blue" onClick={toggleAlert}>Show Default Alert</Button>
         <AlertDialog
           visible={alertVisible}
           onClose={() => setAlertVisible(false)}
           title="Alert"
           message="This is an alert dialog."
         />
-      </div>
+      </Card>
     ) },
     { name: 'Modal', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Modal</h2>
+      <Card title="Modal">
         <Button colorScheme="blue" onClick={toggleModal}>Show Modal</Button>
         <Modal
           visible={modalVisible}
@@ -116,31 +95,28 @@ export default function Home() {
         >
           <p>This is the modal content with a custom footer.</p>
         </Modal>
-      </div>
+      </Card>
     ) },
     { name: 'Dropdown', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Dropdown</h2>
+      <Card title="Dropdown">
         <Dropdown
           label="Select an option"
           options={['Option 1', 'Option 2', 'Option 3']}
           onSelect={handleDropdownSelect}
         />
-      </div>
+      </Card>
     ) },
     { name: 'Checkbox', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Checkbox</h2>
+      <Card title="Checkbox">
         <Checkbox
           checked={checkboxChecked}
           onChange={(e) => setCheckboxChecked(e.target.checked)}
           label="I agree to the terms and conditions"
         />
-      </div>
+      </Card>
     ) },
     { name: 'Radio', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Radio</h2>
+      <Card title="Radio">
         <div className="space-y-2.5 flex flex-col">
           <Radio
             checked={radioValue === 'option1'}
@@ -161,25 +137,19 @@ export default function Home() {
             name="radioGroup"
           />
         </div>
-      </div>
+      </Card>
     ) },
     { name: 'Card', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Card</h2>
-        <div>
-          <Card title="Card Header">
-            Card Body
-          </Card>
-        </div>
-      </div>
+      <Card title="Card">
+        <Card title="Card Header">
+          Card Body
+        </Card>
+      </Card>
     ) },
     { name: 'Code', content: (
-      <div className="bg-white shadow rounded-lg p-2.5 mt-5">
-        <h2 className="text-xl font-bold border-b mb-2.5">Code</h2>
-        <div>
+      <Card title="Code">
         <Code language="html">{`<Button colorScheme="blue">Blue</Button>`}</Code>
-        </div>
-      </div>
+      </Card>
     ) },
   ];
 
@@ -202,15 +172,12 @@ export default function Home() {
         <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
       </div>
       {/* Components */}
-      {filteredComponents.map((component, index) => (
-        <div key={index}>
-          {component.content}
-        </div>
-      ))}
-      {/* Footer */}
-      <div className="my-10 text-center">
-        <h1 className="text-xl font-bold">Thank you for watching this page!</h1>
-        <p className="text-sm mt-2.5">Copyright &copy; 2024 <Link href="https://x.com/m_hono_104" className="underline">hono</Link> All Rights Reserved.</p>
+      <div className="space-y-5">
+        {filteredComponents.map((component, index) => (
+          <div key={index}>
+            {component.content}
+          </div>
+        ))}
       </div>
     </div>
   );
