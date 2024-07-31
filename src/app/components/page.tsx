@@ -91,7 +91,7 @@ export default function Home() {
             </Card>
         ) },
         { name: 'Modal', content: (
-            <Card title="Modal">
+            <Card title="Modal" href="/components/modal">
                 <div className="flex items-center justify-center">
                     <img src="/summary/modal.png" />
                 </div>

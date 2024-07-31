@@ -18,7 +18,7 @@ export default function Home() {
         <img src="/text-logo.png" className="w-[200px]" />
       </div>
       <div className="mt-10 space-x-2.5 flex items-center justify-center">
-        <Button colorScheme='blue'>Get Started</Button>
+        <Link href="/docs/getting-started"><Button colorScheme='blue'>Get Started</Button></Link>
         <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray'><FaGithub className="mr-2.5 text-lg" />GitHub</Button></Link>
       </div>
       <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
