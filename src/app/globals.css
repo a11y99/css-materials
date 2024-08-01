@@ -282,7 +282,7 @@
   align-items: center;
   display: inline-flex;
 }
-.checkbox input {
+input[type="checkbox"] {
   display: none;
 }
 .custom-checkbox {
