@@ -52,14 +52,13 @@ export default function Documents() {
                 <img src="/cheese.png" className="w-[100px]" />
                 <h1 className="text-2xl font-bold">{title}</h1>
                 <div className="mt-5">
-                    <button
-                        className={`px-4 py-2 mr-2.5 rounded-md ${language === 'en' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+                    <button className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('en')}
                     >
                         English
                     </button>
                     <button
-                        className={`px-4 py-2 rounded-md ${language === 'jp' ? 'bg-blue-500 text-white' : 'bg-gray-300'}`}
+                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('jp')}
                     >
                         日本語
