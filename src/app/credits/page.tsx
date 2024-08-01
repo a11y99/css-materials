@@ -28,7 +28,7 @@ export default function Credit() {
         <Body>
             <Header />
             <div className="mb-10 flex flex-col items-center">
-                <img src="/chubbs/6.svg" className="w-[250px]" />
+                <img src="/chubbs/11.svg" className="w-[250px]" />
                 <h1 className="text-2xl font-bold mt-[-25px]">{title}</h1>
                 <div className="mt-5">
                     <button
