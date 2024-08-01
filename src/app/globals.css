@@ -7,6 +7,8 @@
   padding: 10px 17.5px;
   border-radius: 99em;
   font-weight: bold;
+  display: inline-flex;
+  align-items: center;
 }
 .orange-button {
   background-color: rgb(249, 115, 22);
@@ -35,6 +37,10 @@
 .green-button {
   background-color: #22c55e;
   color: #FFF;
+}
+.disabled-button {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* slider */
@@ -154,6 +160,18 @@
   outline: none;
 }
 
+/* Color input specific styles */
+.input[type="color"] {
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+}
+.input[type="color"]:focus {
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.75);
+  outline: none;
+}
+
 /* alert_dialog */
 .alert-dialog {
   position: fixed;
@@ -184,6 +202,10 @@
   border-bottom: 1px solid #eee;
   padding-bottom: 10px;
   margin-bottom: 20px;
+}
+.alert-dialog-title {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 .alert-dialog-body {
   font-size: 16px;
@@ -229,6 +251,10 @@
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
 .modal-body {
   font-size: 16px;
 }
@@ -247,6 +273,9 @@
   border-radius: 4px;
   transition: background-color 0.3s, border-color 0.3s;
   position: relative;
+}
+.custom-label {
+  margin-left: 10px;
 }
 .custom-checkbox::after {
   content: '';
@@ -268,6 +297,11 @@
 }
 
 /* radio */
+.radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
 .custom-radio {
   display: inline-block;
   width: 20px;
@@ -288,7 +322,7 @@
   background-color: #2da0ff;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.3s;
+  transition: transform 0.25s;
 }
 .form-radio:checked + .custom-radio {
   border-color: #2da0ff;
@@ -305,6 +339,69 @@
   width: 1rem;
   height: 1rem;
   animation: spin 1s linear infinite;
+}
+.spin {
+  margin-right: 0.625rem; /* 10px, mr-2.5 */
+  height: 1.25rem; /* 20px, h-5 */
+  width: 1.25rem; /* 20px, w-5 */
+  color: #ffffff; /* text-white */
+}
+.spin-circle {
+  opacity: 0.25;
+}
+
+.spin-path {
+  opacity: 0.75;
+}
+
+/* code */
+.code {
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+/* card */
+.card-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  background-color: rgba(59, 130, 246, 0.05);
+}
+.card-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.card-content {
+  position: relative;
+  padding: 1.25rem; /* 20px */
+  overflow: hidden;
+  transition: max-height 300ms ease-in-out;
+}
+.card-content > *:not(:last-child) {
+  margin-bottom: 0.625rem; /* 10px for space-y-2.5 */
+}
+.card-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5rem; /* 40px, h-10 */
+}
+.card {
+  border: 1px solid rgb(229, 231, 235);
+  border-radius: 0.25rem;
+}
+.card-max-height {
+  padding-bottom: 1.25rem; /* 20px, pb-5 */
+  text-align: center;
+}
+.card-max-height-button {
+  color: #3b82f6; /* text-blue-500 */
+}
+.card-max-height-button:hover {
+  text-decoration: underline;
+}
+.card-max-height-button:focus {
+  outline: none;
 }
 
 @keyframes spin {

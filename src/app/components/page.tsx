@@ -2,7 +2,6 @@
 import React, { useState, useMemo } from 'react';
 import Button from '@/components/Button';
 import Slider from '@/components/Slider';
-import Switch from '@/components/Switch';
 import Input from '@/components/Input';
 import AlertDialog from '@/components/AlertDialog';
 import Link from 'next/link';
@@ -41,15 +40,8 @@ export default function Home() {
     };
 
     const components = [
-        { name: 'Alert', content: (
-            <Card title="Alert">
-                <div className="flex items-center justify-center">
-                    <img src="/summary/alert.png" />
-                </div>
-            </Card>
-        ) },
         { name: 'Alert Dialog', content: (
-            <Card title="Alert Dialog">
+            <Card title="Alert Dialog" href="/components/alert-dialog">
                 <div className="flex items-center justify-center">
                     <img src="/summary/alert-dialog.png" />
                 </div>
@@ -63,28 +55,28 @@ export default function Home() {
             </Card>
         ) },
         { name: 'Card', content: (
-            <Card title="Card">
+            <Card title="Card" href="/components/card">
                 <div className="flex items-center justify-center">
                     <img src="/summary/card.png" />
                 </div>
             </Card>
         ) },
         { name: 'Checkbox', content: (
-            <Card title="Checkbox">
+            <Card title="Checkbox" href="/components/checkbox">
                 <div className="flex items-center justify-center">
                     <img src="/summary/checkbox.png" />
                 </div>
             </Card>
         ) },
         { name: 'Code', content: (
-            <Card title="Code">
+            <Card title="Code" href="/components/code">
                 <div className="flex items-center justify-center">
                     <img src="/summary/code.png" />
                 </div>
             </Card>
         ) },
         { name: 'Input', content: (
-            <Card title="Input">
+            <Card title="Input" href="/components/input">
                 <div className="flex items-center justify-center">
                     <img src="/summary/input.png" />
                 </div>
@@ -98,23 +90,16 @@ export default function Home() {
             </Card>
         ) },
         { name: 'Radio', content: (
-            <Card title="Radio">
+            <Card title="Radio" href="/components/radio">
                 <div className="flex items-center justify-center">
                     <img src="/summary/radio.png" />
                 </div>
             </Card>
         ) },
         { name: 'Slider', content: (
-            <Card title="Slider">
+            <Card title="Slider" href="/components/slider">
                 <div className="flex items-center justify-center">
                     <img src="/summary/slider.png" />
-                </div>
-            </Card>
-        ) },
-        { name: 'Switch', content: (
-            <Card title="Switch">
-                <div className="flex items-center justify-center">
-                    <img src="/summary/switch.png" />
                 </div>
             </Card>
         ) },

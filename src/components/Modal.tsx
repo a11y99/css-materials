@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ visible, onClose, title, children, footer
         <div className="modal-overlay">
         <div className="modal-content">
             <div className="modal-header">
-            <h2 className="text-xl font-bold">{title}</h2>
+            <h2 className="modal-title">{title}</h2>
             <button className="close-button" onClick={onClose}><FiX /></button>
             </div>
             <div className="modal-body">

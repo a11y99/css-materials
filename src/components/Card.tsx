@@ -13,14 +13,14 @@ const Card: React.FC<CardProps> = ({ title, children, href, className, maxHeight
     const [isExpanded, setIsExpanded] = useState(false);
 
     const Header = (
-        <div className="p-5 border-b bg-blue-500 bg-opacity-5">
-            <h1 className="font-semibold text-lg">{title}</h1>
+        <div className="card-header">
+            <h1 className="card-title">{title}</h1>
         </div>
     );
 
     const Content = (
         <div
-            className={`relative p-5 space-y-2.5 overflow-hidden transition-max-height duration-300 ease-in-out`}
+            className="card-content"
             style={{
                 maxHeight: isExpanded ? 'none' : maxHeight ? `${maxHeight}px` : 'none'
             }}
@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({ title, children, href, className, maxHeight
             {children}
             {!isExpanded && maxHeight && (
                 <div
-                    className="absolute bottom-0 left-0 right-0 h-10"
+                    className="card-gradient"
                     style={{
                         background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))'
                     }}
@@ -38,13 +38,13 @@ const Card: React.FC<CardProps> = ({ title, children, href, className, maxHeight
     );
 
     return (
-        <div className={`border rounded ${className || ''}`}>
+        <div className={`card ${className || ''}`}>
             {href ? <Link href={href}>{Header}</Link> : Header}
             {Content}
             {maxHeight && (
-                <div className="pb-5 text-center">
+                <div className="card-max-height">
                     <button
-                        className="text-blue-500 hover:underline focus:outline-none"
+                        className="card-max-height-button"
                         onClick={() => setIsExpanded(!isExpanded)}
                     >
                         {isExpanded ? 'Read Less' : 'Read More'}

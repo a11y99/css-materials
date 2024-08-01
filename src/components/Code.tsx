@@ -13,7 +13,7 @@ const Code: React.FC<CodeProps> = ({ children, language = 'javascript' }) => {
     }, []);
 
     return (
-        <div className="rounded-md overflow-hidden">
+        <div className="code">
             <pre className="hljs">
                 <code className={`language-${language}`}>
                     {children}

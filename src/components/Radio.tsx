@@ -5,20 +5,22 @@ type RadioProps = {
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     label: string;
     name: string;
+    value: string;
 };
 
-const Radio: React.FC<RadioProps> = ({ checked, onChange, label, name }) => {
+const Radio: React.FC<RadioProps> = ({ checked, onChange, label, name, value }) => {
     return (
-        <label className="inline-flex items-center cursor-pointer">
+        <label className="radio">
             <input
                 type="radio"
                 checked={checked}
                 onChange={onChange}
                 name={name}
+                value={value}
                 className="form-radio hidden"
             />
             <span className="custom-radio"></span>
-            <span className="ml-2">{label}</span>
+            <span className="custom-label">{label}</span>
         </label>
     );
 };

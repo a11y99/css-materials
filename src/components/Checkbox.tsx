@@ -16,7 +16,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange, label }) => {
                 className="form-checkbox hidden"
             />
             <span className="custom-checkbox"></span>
-            <span className="ml-2">{label}</span>
+            <span className="custom-label">{label}</span>
         </label>
     );
 };

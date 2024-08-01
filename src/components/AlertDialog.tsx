@@ -16,7 +16,7 @@ const AlertDialog: React.FC<AlertDialogProps> = ({ visible, onClose, title, mess
         <div className="alert-dialog">
             <div className="alert-dialog-content">
                 <div className="alert-dialog-header">
-                    <h2 className="text-xl font-bold">{title}</h2>
+                    <h2 className="alert-dialog-title">{title}</h2>
                     <button className="close-button" onClick={onClose}><FiX /></button>
                 </div>
                 <div className="alert-dialog-body">
