@@ -35,7 +35,7 @@ export default function Home() {
           </Card>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <Card title="XXXXX XXXXX XXXXX XXXXX">
           <div className="flex flex-col h-20">
             <p className="opacity-50 text-sm">XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX</p>
