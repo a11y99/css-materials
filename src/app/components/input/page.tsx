@@ -31,7 +31,7 @@ const InputComponents = () => {
                     <p>This is a basic usage example of the Input component.</p>
                     <Input placeholder="Type something..." onChange={handleInputChange} />
                     <p>You typed: {inputValue}</p>
-                    <Code language='typescript'>
+                    <Code language='tsx'>
 {`import React, { useState, ChangeEvent } from 'react';
 import Input from '@/components/Input';
 

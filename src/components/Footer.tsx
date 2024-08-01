@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
                     <img src="/text-logo.png" alt="Company Logo" className="mb-5 w-[150px]" />
-                    <p className="opacity-50 text-sm">© 2024 Your Company. All rights reserved.</p>
+                    <p className="opacity-50 text-sm">© 2024 hono. All rights reserved.</p>
                 </div>
                 <div>
                     <h2 className="text-xl font-bold mb-5">Support</h2>
