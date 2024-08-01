@@ -17,7 +17,7 @@ export default function Header() {
                     </div>
                     <div className="hidden md:flex space-x-5 ml-5">
                         <Link href="/docs/getting-started">Docs</Link>
-                        <Link href="/example">Example</Link>
+                        <Link href="https://example-css-materials.vercel.app">Example</Link>
                         <Link href="/components">Components</Link>
                     </div>
                     <div className="hidden md:block ml-auto">
@@ -29,7 +29,7 @@ export default function Header() {
                 <div className="fixed left-0 top-[44px] w-full bg-white z-40 shadow-lg md:hidden">
                     <div className="flex flex-col items-start px-5 mt-2.5 pb-5 space-y-[15px]">
                         <Link href="/docs/getting-started">Docs</Link>
-                        <Link href="/example">Example</Link>
+                        <Link href="https://example-css-materials.vercel.app">Example</Link>
                         <Link href="/components">Components</Link>
                         <Link href="https://github.com/hn-104/css-materials" className="flex items-center">GitHub<FiExternalLink className="ml-1.5" /></Link>
                     </div>
