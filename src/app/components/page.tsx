@@ -6,7 +6,6 @@ import Input from '@/components/Input';
 import AlertDialog from '@/components/AlertDialog';
 import Link from 'next/link';
 import Modal from '@/components/Modal';
-import Dropdown from '@/components/Dropdown';
 import Checkbox from '@/components/Checkbox';
 import Radio from '@/components/Radio';
 import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
