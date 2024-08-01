@@ -27,19 +27,24 @@ export default function Home() {
             <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray'><FaGithub className="mr-2.5 text-lg" />GitHub</Button></Link>
           </div>
           <p className="opacity-50">A Collection of Beginner-Friendly, Easy-to-Use Components!</p>
+          <div>
+            <p>Install from npm 🎉</p>
+            <Link href="https://www.npmjs.com/package/css-materials" className="text-sm text-blue-500 hover:underline">https://www.npmjs.com/package/css-materials</Link>
+          </div>
         </div>
       </div>
       <div className="mt-10 md:mt-0 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <Card title="CSS Materials Official Release!">
+          <div className="flex flex-col h-20">
+            <p className="opacity-50 text-sm">Easy Installation via npm!</p>
+            <Link href="https://www.npmjs.com/package/css-materials" className="text-xs text-blue-500 hover:underline">https://www.npmjs.com/package/css-materials</Link>
+            <p className="mt-auto text-sm">2024-08-01</p>
+          </div>
+        </Card>
         <Card title="CSS Materials Launches Beta Version!">
           <div className="flex flex-col h-20">
             <p className="opacity-50 text-sm">Amazing Collection of Easy-to-Use Components!</p>
             <p className="mt-auto text-sm">2024-07-31</p>
-          </div>
-        </Card>
-        <Card title="XXXXX XXXXX XXXXX XXXXX">
-          <div className="flex flex-col h-20">
-            <p className="opacity-50 text-sm">XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX</p>
-            <p className="mt-auto text-sm">20XX-XX-XX</p>
           </div>
         </Card>
         <Card title="XXXXX XXXXX XXXXX XXXXX">
