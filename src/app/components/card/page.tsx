@@ -41,7 +41,7 @@ export default Example;`}
                 <Card title="Expandable Card">
                     <p>This example shows a card that can expand and collapse to show more or less content.</p>
                     <Card title="Expandable Card Title" maxHeight="200">
-                        <p>This is the expandable card content. Click "Read More" to see the full content.</p>
+                        <p>This is the expandable card content. Click &quot;Read More&quot; to see the full content.</p>
                         <p>Additional content is shown here when the card is expanded.</p>
                         <div className="flex justify-center"><img src="/cheese.png" className="w-64" /></div>
                     </Card>
@@ -53,7 +53,7 @@ const ExampleExpandable = () => {
     return (
         <div>
             <Card title="Expandable Card Title" maxHeight="100">
-                <p>This is the expandable card content. Click "Read More" to see the full content.</p>
+                <p>This is the expandable card content. Click &quot;Read More&quot; to see the full content.</p>
                 <p>Additional content is shown here when the card is expanded.</p>
             </Card>
         </div>
