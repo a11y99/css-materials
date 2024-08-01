@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="CSS Materials" />
         <meta name="twitter:description" content="Explore free, stylish CSS templates to enhance your projects." />
