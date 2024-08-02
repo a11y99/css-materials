@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <footer className="bg-blue-50 px-10 md:px-0 py-10 mt-16">
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
-                    <img src="/text-logo.png" alt="Company Logo" className="mb-5 w-[150px]" />
+                    <img src="/css-materials.png" alt="Company Logo" className="mb-5 w-[175px]" />
                     <p className="opacity-50 text-sm">© 2024 hono. All rights reserved.</p>
                 </div>
                 <div>

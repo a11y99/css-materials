@@ -20,7 +20,7 @@ export default function Home() {
         <div className="space-y-5 flex flex-col">
           <div className="flex flex-col items-center">
             <img src="/cheese.png" className="w-[100px]" />
-            <img src="/text-logo.png" className="w-[200px]" />
+            <img src="/css-materials.png" className="w-[200px]" />
           </div>
           <div className="space-x-2.5 flex items-center justify-center">
             <Link href="/docs/getting-started"><Button colorScheme='blue'>Get Started</Button></Link>

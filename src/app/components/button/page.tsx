@@ -46,8 +46,8 @@ const ButtonComponents = () => {
     return (
         <Body>
             <Header />
-            <div className="mt-20 mb-10 flex flex-col space-y-2.5">
-                <h1 className="text-[32px] font-bold">Button</h1>
+            <div className="mt-20 mb-10 flex flex-col">
+                <h1 className="text-[32px] font-bold mb-[12.5px]">Button</h1>
                 <div>
                     <button
                         className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}

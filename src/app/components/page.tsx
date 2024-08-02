@@ -113,13 +113,8 @@ export default function Home() {
     return (
         <Body>
             <Header />
-            {/* Top */}
-            <div className="my-10 flex flex-col items-center">
-                <img src="/cheese.png" className="w-[100px]" />
-                <img src="/text-logo.png" className="w-[200px]" />
-            </div>
-            {/* Search Components */}
-            <div className="mb-5">
+            <div className="mt-20 mb-10">
+                <p className="text-[32px] font-bold mb-[12.5px]">Components</p>
                 <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
             </div>
             {/* No Results */}
