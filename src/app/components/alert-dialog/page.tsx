@@ -37,19 +37,18 @@ const AlertDialogComponents = () => {
                         title="Alert"
                         message="This is an alert message."
                     />
-                    <Code language='typescript'>
+                    <Code language='tsx'>
 {`import React, { useState } from 'react';
-import Button from '@/components/Button';
-import AlertDialog from '@/components/AlertDialog';
+import { Button, AlertDialog } from "css-materials";
 
-const Example = () => {
-    const [isAlertDialogVisible, setAlertDialogVisible] = useState(false);
+const Example: React.FC = () => {
+    const [isAlertDialogVisible, setAlertDialogVisible] = useState<boolean>(false);
 
-    const handleOpenAlertDialog = () => {
+    const handleOpenAlertDialog = (): void => {
         setAlertDialogVisible(true);
     };
 
-    const handleCloseAlertDialog = () => {
+    const handleCloseAlertDialog = (): void => {
         setAlertDialogVisible(false);
     };
 

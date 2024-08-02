@@ -3,13 +3,33 @@
 @tailwind utilities;
 
 /* button */
-.orange-button, .blue-button, .gray-button, .purple-button, .red-button, .yellow-button, .green-button {
+.button {
   padding: 10px 17.5px;
   border-radius: 99em;
   font-weight: bold;
   display: inline-flex;
   align-items: center;
+  outline: none;
 }
+.button-small {
+  padding: 5px 10px;
+}
+.button-medium {
+  padding: 10px 20px;
+}
+.button-large {
+  padding: 15px 30px;
+}
+.button-rounded {
+  border-radius: 15px;
+}
+.button-square {
+  border-radius: 5px;
+}
+.button-circular {
+  border-radius: 99em;
+}
+/* Color schemes */
 .orange-button {
   background-color: rgb(249, 115, 22);
   color: #FFF;
@@ -38,6 +58,7 @@
   background-color: #22c55e;
   color: #FFF;
 }
+/* Disabled state */
 .disabled-button {
   opacity: 0.5;
   cursor: not-allowed;
