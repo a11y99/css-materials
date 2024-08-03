@@ -1,49 +1,55 @@
 "use client"
-import Body from '@/components/Body';
-import Card from '@/components/Card';
-import Header from '@/components/Header';
 import React, { useState } from 'react';
+import Button from '@/components/Button';
+import Header from '@/components/Header';
+import Card from '@/components/Card';
+import Code from '@/components/Code';
+import Body from '@/components/Body';
+import PreviewAreaH from '@/components/PreviewAreaH';
+import { FaGithub } from 'react-icons/fa';
+import Link from 'next/link';
 
-type Language = 'en' | 'jp';
-
-const content: Record<Language, { title: string; cards: { title: string; text: string; }[] }> = {
+const texts = {
     en: {
         title: "Terms of Service",
-        cards: [
-            { title: "Welcome to CSS Materials!", text: "CSS Materials is a friendly place where you can find and use various components easily. Feel free to use anything here without asking for permission." },
-            { title: "Your Responsibility", text: "While using our components, please ensure you're following all relevant laws and regulations. It's important to be responsible and respectful towards others." },
-            { title: "Content Ownership", text: "All the content you find here belongs to their respective creators. Please don't copy or distribute the content without proper authorization." }
-        ]
+        welcome: "Welcome to CSS Materials!",
+        welcomeDesc: "CSS Materials is a friendly place where you can find and use various components easily. Feel free to use anything here without asking for permission.",
+        responsibility: "Your Responsibility",
+        responsibilityDesc: "While using our components, please ensure you're following all relevant laws and regulations. It's important to be responsible and respectful towards others.",
+        ownership: "Content Ownership",
+        ownershipDesc: "All the content you find here belongs to their respective creators. Please don't copy or distribute the content without proper authorization.",
     },
     jp: {
         title: "利用規約",
-        cards: [
-            { title: "CSS Materialsへようこそ！", text: "CSS Materialsは、簡単に利用できるコンポーネントを集めた、誰でも自由に使えるサイトです。許可を取らずに自由に使ってくださいね。" },
-            { title: "あなたの責任", text: "コンポーネントを使用する際には、適用されるすべての法律や規則を守ってください。他の人に対しても責任を持って、敬意を払って行動しましょう。" },
-            { title: "コンテンツの所有権", text: "ここにあるすべてのコンテンツは、それぞれの作成者に帰属します。許可なくコピーしたり配布したりしないでくださいね。" }
-        ]
+        welcome: "CSS Materialsへようこそ！",
+        welcomeDesc: "CSS Materialsは、簡単に利用できるコンポーネントを集めた、誰でも自由に使えるサイトです。許可を取らずに自由に使ってくださいね。",
+        responsibility: "あなたの責任",
+        responsibilityDesc: "コンポーネントを使用する際には、適用されるすべての法律や規則を守ってください。他の人に対しても責任を持って、敬意を払って行動しましょう。",
+        ownership: "コンテンツの所有権",
+        ownershipDesc: "ここにあるすべてのコンテンツは、それぞれの作成者に帰属します。許可なくコピーしたり配布したりしないでくださいね。",
     }
 };
 
-const Terms: React.FC = () => {
-    const [language, setLanguage] = useState<Language>('en');
+const Terms = () => {
+    const [language, setLanguage] = useState<'en' | 'jp'>('en');
 
-    const { title, cards } = content[language];
+    const t = texts[language];
 
     return (
         <Body>
             <Header />
-            <div className="mb-10 flex flex-col items-center">
-                <img src="/chubbs/9.svg" className="w-[250px]" />
-                <h1 className="text-2xl font-bold mt-[-25px]">{title}</h1>
-                <div className="mt-5">
-                    <button className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+            <div className="mt-20 mb-10 flex flex-col items-center">
+                <img src="/d/scenes/5.svg" className="w-64" />
+                <h1 className="text-[32px] font-bold mb-[12.5px]">{t.title}</h1>
+                <div>
+                    <button
+                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('en')}
                     >
                         English
                     </button>
                     <button
-                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('jp')}
                     >
                         日本語
@@ -51,11 +57,15 @@ const Terms: React.FC = () => {
                 </div>
             </div>
             <div className="space-y-5">
-                {cards.map((card, index) => (
-                    <Card key={index} title={card.title}>
-                        <p>{card.text}</p>
-                    </Card>
-                ))}
+                <Card title={t.welcome}>
+                    <p>{t.welcomeDesc}</p>
+                </Card>
+                <Card title={t.responsibility}>
+                    <p>{t.responsibilityDesc}</p>
+                </Card>
+                <Card title={t.ownership}>
+                    <p>{t.ownershipDesc}</p>
+                </Card>
             </div>
         </Body>
     );
