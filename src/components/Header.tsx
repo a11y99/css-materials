@@ -10,7 +10,7 @@ export default function Header() {
         <div>
             <div className="flex py-[12.5px] px-5 shadow w-full bg-white fixed left-0 top-0 z-50">
                 <div className="flex justify-between w-full items-center">
-                    <Link href="/" className="w-[175px]"><img src="/css-materials.png" alt="Logo" /></Link>
+                    <Link href="/" className="w-[175px]"><img src="/media_kit/css-materials.png" alt="Logo" /></Link>
                     <div className="flex md:hidden">
                         <button onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}

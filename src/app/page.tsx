@@ -13,26 +13,22 @@ export default function Home() {
   return (
     <div className="w-[80%] mx-auto">
       <Header />
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2">
+      <div className="my-10 grid grid-cols-1 md:grid-cols-2 items-center">
         <div className="hidden md:block">
-          <img src="/chubbs/2.svg" />
+          <img src="/d/scenes/1.svg" />
         </div>
-        <div className="space-y-5 flex flex-col">
-          <div className="flex flex-col items-center">
-            <img src="/cheese.png" className="w-[100px]" />
-            <img src="/css-materials.png" className="w-[200px]" />
+        <div className="mt-10 md:mt-0 space-y-5">
+          <div className="flex flex-col items-center space-y-2.5">
+            <img src="/media_kit/logo-only.png" className="w-[50px]" />
+            <img src="/media_kit/text-only.png" className="w-[200px]" />
           </div>
-          <div className="space-x-2.5 flex items-center justify-center">
-            <Link href="/docs/getting-started"><Button colorScheme='blue'>Get Started</Button></Link>
+          <div className="space-x-2.5 flex justify-center">
+            <Link href="/docs/getting-started"><Button colorScheme='orange'>Get Started</Button></Link>
             <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray'><FaGithub className="mr-2.5 text-lg" />GitHub</Button></Link>
-          </div>
-          <p className="opacity-50">A Collection of Beginner-Friendly, Easy-to-Use Components!</p>
-          <div>
-            <p>Install from npm 🎉</p>
-            <Link href="https://www.npmjs.com/package/css-materials" className="text-sm text-blue-500 hover:underline">https://www.npmjs.com/package/css-materials</Link>
           </div>
         </div>
       </div>
+      {/* --- */}
       <div className="mt-10 md:mt-0 grid grid-cols-1 md:grid-cols-3 gap-5">
         <Card title="CSS Materials Official Release!">
           <div className="flex flex-col h-20">
