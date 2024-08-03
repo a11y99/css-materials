@@ -448,6 +448,32 @@ input[type="checkbox"] {
   outline: none;
 }
 
+/* table */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  text-align: left;
+}
+.custom-table th,
+.custom-table td {
+  padding: 12.5px 15px;
+  border: 1px solid #d0d7df;
+}
+.custom-table th {
+  cursor: pointer;
+  background-color: #e0e7ef;
+}
+.custom-table th:hover {
+  background-color: #d6dde3;
+}
+.custom-table tr:nth-of-type(even) {
+  background-color: #f0f7ff;
+}
+.custom-table tr:hover {
+  background-color: #e6edf3;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

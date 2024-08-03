@@ -7,20 +7,18 @@ import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import Input from '@/components/Input';
-import { FaKey, FaMailBulk } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaKey, FaMailBulk } from 'react-icons/fa';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import Link from 'next/link';
 
 const texts = {
     en: {
-        button: "Regular Expression Table",
-        link: "https://docs.automic.com/documentation/webhelp/english/ALL/components/AM/9.1/All%20Guides/Content/AM_Development_Guide/Regular_Expression_Tables.htm",
         overview: "Overview",
         overviewDesc: "An input is a field component that allows users to enter data or text.",
         import: "Import",
         usage: "Usage",
         pattern: "Pattern",
-        patternDesc: "Regular expression",
+        patternDesc: "You can make detailed configurations using regular expressions.",
         readOnly: "Read Only",
         disabled: "Disabled",
         clearable: "Clearable",
@@ -28,14 +26,12 @@ const texts = {
         iconDesc: "You can set icons such as those from react-icons.",
     },
     jp: {
-        button: "正規表現サンプル表",
-        link: "https://www.megasoft.co.jp/mifes/seiki/meta.html",
         overview: "概要",
         overviewDesc: "Inputは、ユーザーがデータやテキストを入力するためのフィールドコンポーネントです。",
         import: "インポート",
         usage: "使い方",
         pattern: "パターン",
-        patternDesc: "正規表現",
+        patternDesc: "正規表現を使って、細かく設定することができます。",
         readOnly: "読み取り専用",
         disabled: "無効化",
         clearable: "消去可能",
@@ -77,17 +73,13 @@ const Components = () => {
                     <Code language='tsx'>{`import { Input } from "css-materials";`}</Code>
                 </Card>
                 <Card title={t.usage}>
-                    <PreviewAreaH>
+                    <PreviewAreaV>
                         <Input placeholder='Input here...' />
-                    </PreviewAreaH>
+                    </PreviewAreaV>
                     <Code language='html'>{`<Input placeholder="Input here..." />`}</Code>
                 </Card>
                 <Card title={t.pattern}>
-                    <Link href={t.link}>
-                        <Button className="mb-2.5" colorScheme='gray'>
-                            {t.button}
-                        </Button>
-                    </Link>
+                    <p>{t.patternDesc}</p>
                     <PreviewAreaV>
                         <Input placeholder="Enter a valid email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />
                     </PreviewAreaV>
