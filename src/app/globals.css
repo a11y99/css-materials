@@ -178,32 +178,56 @@
   border: 1px solid rgba(245, 158, 11, .075);
 }
 
-/* input */
-.input {
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.input-wrapper .input-icon + .input-element {
+  padding-left: 2.25rem;
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+}
+.input-element {
   width: 100%;
-  padding: 7.5px 12.5px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.05);
-  transition: border-color 0.25s, box-shadow 0.25s;
-}
-.input:focus {
-  border-color: #80bdff;
-  box-shadow: 0 0 3px rgba(128, 189, 255, 0.5);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   outline: none;
+  transition: border-color 0.25s;
 }
-
-/* Color input specific styles */
-.input[type="color"] {
-  height: 40px;
+.input-element:focus {
+  border-color: #2da0ff;
+}
+.input-clear-button {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
   border: none;
+  font-size: 1.25rem;
   cursor: pointer;
-  transition: box-shadow 0.25s;
-}
-.input[type="color"]:focus {
-  box-shadow: 0 0 5px rgba(128, 189, 255, 0.75);
   outline: none;
+}
+.input-clear-button:focus {
+  color: #2da0ff;
+}
+.input-container.focused .input-element {
+  border-color: #2da0ff;
+}
+.input-container.error .input-element {
+  border-color: #ff0000;
+}
+.input-error-message {
+  color: #ff0000;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
 }
 
 /* alert_dialog */

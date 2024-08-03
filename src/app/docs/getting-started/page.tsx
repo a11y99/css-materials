@@ -9,6 +9,7 @@ import PreviewAreaH from '@/components/PreviewAreaH';
 
 const texts = {
     en: {
+        title: "Getting Started",
         installation: "Installation",
         installationDesc: "With CSS Materials, all installations are completed just by installing css-materials.",
         styling: "Styling",
@@ -17,6 +18,7 @@ const texts = {
         finishedDesc: "Use the components by calling them within your application.",
     },
     jp: {
+        title: "はじめる",
         installation: "インストール",
         installationDesc: "CSS Materialsは、css-materialsをインストールするだけで、すべてのインストールが完了します。",
         styling: "スタイリング",
@@ -35,7 +37,7 @@ const Documents = () => {
         <Body>
             <Header />
             <div className="mt-20 mb-10 flex flex-col">
-                <h1 className="text-[32px] font-bold mb-[12.5px]">Getting Started</h1>
+                <h1 className="text-[32px] font-bold mb-[12.5px]">{t.title}</h1>
                 <div>
                     <button
                         className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}

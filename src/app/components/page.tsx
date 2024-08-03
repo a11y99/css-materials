@@ -13,6 +13,7 @@ import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
 import Body from '@/components/Body';
+import { FaSearch } from 'react-icons/fa';
 
 export default function Home() {
     const [sliderValue, setSliderValue] = useState<number>(50);
@@ -30,8 +31,8 @@ export default function Home() {
         setModalVisible(!modalVisible);
     };
 
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(event.target.value.toLowerCase());
+    const handleSearchChange = (value: string) => {
+        setQuery(value.toLowerCase());
     };
 
     const handleDropdownSelect = (option: string) => {
@@ -115,13 +116,13 @@ export default function Home() {
             <Header />
             <div className="mt-20 mb-10">
                 <p className="text-[32px] font-bold mb-[12.5px]">Components</p>
-                <Input placeholder='Enter to search components...' onChange={handleSearchChange} />
+                <Input placeholder='Enter to search components...' onChange={handleSearchChange} icon={<FaSearch />} />
             </div>
             {/* No Results */}
             {filteredComponents.length === 0 && (
-                <div className="flex flex-col items-center mb-5">
-                    <img src="/chubbs/5.svg" className="w-[250px] mt-[-25px] select-none" />
-                    <p className="text-lg mt-[-25px] select-none">No results found.</p>
+                <div className="flex flex-col items-center">
+                    <img src="/d/characters/2.svg" className="w-64" />
+                    <p className="text-lg">No results found.</p>
                 </div>
             )}
             {/* Components */}

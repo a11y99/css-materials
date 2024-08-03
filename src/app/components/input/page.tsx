@@ -1,98 +1,128 @@
 "use client"
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
+import Body from '@/components/Body';
+import PreviewAreaH from '@/components/PreviewAreaH';
 import Input from '@/components/Input';
+import { FaKey, FaMailBulk } from 'react-icons/fa';
+import PreviewAreaV from '@/components/PreviewAreaV';
 
-const InputComponents = () => {
-    const [inputValue, setInputValue] = useState("");
-    const [colorValue, setColorValue] = useState("#000000");
+const texts = {
+    en: {
+        overview: "Overview",
+        overviewDesc: "An input is a field component that allows users to enter data or text.",
+        import: "Import",
+        usage: "Usage",
+        pattern: "Pattern",
+        readOnly: "Read Only",
+        disabled: "Disabled",
+        clearable: "Clearable",
+        icon: "Icon",
+    },
+    jp: {
+        overview: "概要",
+        overviewDesc: "Inputは、ユーザーがデータやテキストを入力するためのフィールドコンポーネントです。",
+        import: "インポート",
+        usage: "使い方",
+        pattern: "パターン",
+        readOnly: "読み取り専用",
+        disabled: "無効化",
+        clearable: "消去可能",
+        icon: "アイコン",
+    }
+};
 
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
-    };
+const Components = () => {
+    const [language, setLanguage] = useState<'en' | 'jp'>('en');
 
-    const handleColorChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setColorValue(event.target.value);
-    };
+    const t = texts[language];
 
     return (
-        <div className="w-[80%] mx-auto">
+        <Body>
             <Header />
-            <div className="mb-10 text-center flex flex-col items-center justify-center">
-                <img src="/chubbs/6.svg" className="w-80" />
-                <h1 className="text-xl font-bold mt-[-50px]">Input</h1>
+            <div className="mt-20 mb-10 flex flex-col">
+                <h1 className="text-[32px] font-bold mb-[12.5px]">Input</h1>
+                <div>
+                    <button
+                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+                        onClick={() => setLanguage('en')}
+                    >
+                        English
+                    </button>
+                    <button
+                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+                        onClick={() => setLanguage('jp')}
+                    >
+                        日本語
+                    </button>
+                </div>
             </div>
             <div className="space-y-5">
-                {/* Usage Section */}
-                <Card title="Usage">
-                    <p>This is a basic usage example of the Input component.</p>
-                    <Input placeholder="Type something..." onChange={handleInputChange} />
-                    <p>You typed: {inputValue}</p>
-                    <Code language='tsx'>
-{`import React, { useState, ChangeEvent } from 'react';
-import Input from '@/components/Input';
-
-const Example = () => {
-    const [inputValue, setInputValue] = useState("");
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
-    };
-
-    return (
-        <div>
-            <Input placeholder="Type something..." onChange={handleInputChange} />
-            <p>You typed: {inputValue}</p>
-        </div>
-    );
-};
-
-export default Example;`}
-                    </Code>
+                <Card title={t.overview}>
+                    {t.overviewDesc}
                 </Card>
+                <Card title={t.import}>
+                    <Code language='tsx'>{`import { Input } from "css-materials";`}</Code>
+                </Card>
+                <Card title={t.usage}>
+                    <PreviewAreaH>
+                        <Input placeholder='Input here...' />
+                    </PreviewAreaH>
+                    <Code language='html'>{`<Input placeholder="Input here..." />`}</Code>
+                </Card>
+                <Card title={t.pattern}>
+                    <PreviewAreaV>
+                        <Input placeholder="Enter a valid email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />
+                    </PreviewAreaV>
+                    <Code language="html">{`<Input placeholder="Enter a valid email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />`}</Code>
+                </Card>
+                <Card title={t.readOnly}>
+                    <PreviewAreaV>
+                        <Input placeholder='Read Only' readOnly />
+                    </PreviewAreaV>
+                    <Code language="html">{`<Input placeholder='Read Only' readOnly />`}</Code>
+                </Card>
+                <Card title={t.disabled}>
+                    <PreviewAreaV>
+                        <Input placeholder='Disabled' disabled />
+                    </PreviewAreaV>
+                    <Code language='html'>{`<Input placeholder='Disabled' disabled />`}</Code>
+                </Card>
+                <Card title={t.clearable}>
+                    <PreviewAreaV>
+                        <Input placeholder='Input here...' clearable />
+                    </PreviewAreaV>
+                    <Code language='html'>{`<Input placeholder='Input here...' clearable />`}</Code>
+                </Card>
+                <Card title={t.clearable}>
+                    <PreviewAreaV>
+                        <Input placeholder='Input here...' clearable />
+                    </PreviewAreaV>
+                    <Code language='html'>{`<Input placeholder='Input here...' clearable />`}</Code>
+                </Card>
+                <Card title={t.icon}>
+                    <PreviewAreaV>
+                        <Input placeholder="Email" type="email" icon={<FaMailBulk />} />
+                        <Input placeholder="Password" type="password" icon={<FaKey />} />
+                    </PreviewAreaV>
+                    <Code language='tsx'>
+{`import { FaMailBulk, FaKey } from "react-icons/fa";
 
-                {/* Type Attribute Section */}
-                <Card title="Input Type Attribute">
-                    <p>The <code>type</code> attribute specifies the type of <code>input</code> element to display. It can be set to different values such as <code>text</code>, <code>password</code>, <code>email</code>, <code>color</code>, etc. Here is an example of using different <code>type</code> attributes with the Input component.</p>
-                    <Input type="password" placeholder="Enter your password" onChange={handleInputChange} />
-                    <Input type="email" placeholder="Enter your email" onChange={handleInputChange} />
-                    <Input type="color" onChange={handleColorChange} />
-                    <p>Selected color: {colorValue}</p>
-                    <Code language='typescript'>
-{`import React, { useState, ChangeEvent } from 'react';
-import Input from '@/components/Input';
-
-const ExampleWithTypes = () => {
-    const [inputValue, setInputValue] = useState("");
-    const [colorValue, setColorValue] = useState("#000000");
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setInputValue(event.target.value);
-    };
-
-    const handleColorChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setColorValue(event.target.value);
-    };
-
+export default function App() {
     return (
-        <div>
-            <Input type="password" placeholder="Enter your password" onChange={handleInputChange} />
-            <Input type="email" placeholder="Enter your email" onChange={handleInputChange} />
-            <Input type="color" onChange={handleColorChange} />
-            <p>Selected color: {colorValue}</p>
-        </div>
-    );
-};
-
-export default ExampleWithTypes;`}
-                    </Code>
+        <>
+            <Input placeholder="Email" type="email" icon={<FaMailBulk />} />
+            <Input placeholder="Password" type="password" icon={<FaKey />} />
+        </>
+    )
+}`}</Code>
                 </Card>
             </div>
-        </div>
+        </Body>
     );
 };
 
-export default InputComponents;
+export default Components;
