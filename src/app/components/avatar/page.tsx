@@ -7,8 +7,9 @@ import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
-import { FaArrowAltCircleRight, FaArrowRight, FaPhone } from 'react-icons/fa';
 import Avatar from '@/components/Avatar';
+import { FaUser } from 'react-icons/fa';
+import { FiUser } from 'react-icons/fi';
 
 const texts = {
     en: {
@@ -20,6 +21,7 @@ const texts = {
         changeSizeDesc: "Specifies the size of the avatar. You can set the size using 'small', 'medium', 'large', or a numerical value. By default, the medium size is applied.",
         bgColor: "Set Background Color",
         bgColorDesc: "Specifies the background color when no image is set. The default color is #CCC.",
+        icon: "Set Icon",
     },
     jp: {
         overview: "概要",
@@ -30,6 +32,7 @@ const texts = {
         changeSizeDesc: "アバターのサイズを指定します。'small'、'medium'、'large'の文字列か、数値でサイズを設定できます。デフォルトではmediumが適用されています。",
         bgColor: "背景色を設定する",
         bgColorDesc: "画像が設定されていない場合の背景色を指定します。デフォルトは#CCCです。",
+        icon: "アイコンを設定する",
     }
 };
 
@@ -92,6 +95,12 @@ const Components = () => {
                         <Avatar name="オダギリジョー" bgColor="#FF5733" />
                     </div>
                     <Code language='html'>{`<Avatar name="オダギリジョー" bgColor="#FF5733" />`}</Code>
+                </Card>
+                <Card title={t.icon}>
+                    <div className='flex p-2.5 space-x-2.5 border rounded-md'>
+                        <Avatar icon={<FiUser />} />
+                    </div>
+                    <Code language='html'>{`<Avatar icon={<FiUser />} />`}</Code>
                 </Card>
             </div>
         </Body>
