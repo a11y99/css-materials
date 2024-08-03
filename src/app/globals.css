@@ -497,7 +497,7 @@ input[type="checkbox"] {
   bottom: -2px;
   height: 2px;
   background-color: transparent;
-  transition: background-color 0.3s;
+  transition: background-color 0.25s;
 }
 .tab.active::after {
   background-color: #2da0ff;
