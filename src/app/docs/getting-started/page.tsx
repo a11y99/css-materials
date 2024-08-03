@@ -1,64 +1,50 @@
 "use client"
-import { useState } from 'react';
-import Body from "@/components/Body";
-import Card from "@/components/Card";
-import Header from "@/components/Header";
-import Code from "@/components/Code";
+import React, { useState } from 'react';
+import Button from '@/components/Button';
+import Header from '@/components/Header';
+import Card from '@/components/Card';
+import Code from '@/components/Code';
+import Body from '@/components/Body';
+import PreviewAreaH from '@/components/PreviewAreaH';
 
-type Language = 'en' | 'jp';
+const texts = {
+    en: {
+        installation: "Installation",
+        installationDesc: "With CSS Materials, all installations are completed just by installing css-materials.",
+        styling: "Styling",
+        stylingDesc: "To apply the styles from css-materials, import the CSS file.",
+        finished: "Mission accomplished!",
+        finishedDesc: "Use the components by calling them within your application.",
+    },
+    jp: {
+        installation: "インストール",
+        installationDesc: "CSS Materialsは、css-materialsをインストールするだけで、すべてのインストールが完了します。",
+        styling: "スタイリング",
+        stylingDesc: "css-materialsのスタイルを適用するには、CSSファイルをインポートします。",
+        finished: "任務完了！",
+        finishedDesc: "アプリケーション内でコンポーネントを呼び出して使います。",
+    }
+};
 
-export default function Documents() {
-    const [language, setLanguage] = useState<Language>('en');
+const Documents = () => {
+    const [language, setLanguage] = useState<'en' | 'jp'>('en');
 
-    const content: Record<Language, { title: string; introduction: string; installation: string; usage: string; styling: string; }> = {
-        en: {
-            title: "Getting Started",
-            introduction: "Welcome to the css-materials package documentation. This package provides a collection of reusable React components with associated CSS styles. Follow the steps below to get started.",
-            installation: "To install the css-materials package, run the following command:",
-            usage: "To use the components and styles in your project, import them as shown below:",
-            styling: "The package comes with a pre-built CSS file. To include the styles, simply import the CSS file in your project as shown in the Usage section:"
-        },
-        jp: {
-            title: "はじめに",
-            introduction: "css-materialsパッケージのドキュメントへようこそ。このパッケージは、再利用可能なReactコンポーネントと関連するCSSスタイルのコレクションを提供します。以下の手順に従って始めてください。",
-            installation: "css-materialsパッケージをインストールするには、次のコマンドを実行してください:",
-            usage: "プロジェクトでコンポーネントとスタイルを使用するには、以下のようにインポートします:",
-            styling: "このパッケージには、あらかじめ作成されたCSSファイルが付属しています。スタイルを含めるには、Usageセクションで示したようにCSSファイルをインポートしてください:"
-        }
-    };
-
-    const titles = {
-        en: {
-            introduction: "Introduction",
-            installation: "Installation",
-            usage: "Usage",
-            styling: "Styling"
-        },
-        jp: {
-            introduction: "紹介",
-            installation: "インストール",
-            usage: "使用方法",
-            styling: "スタイリング"
-        }
-    };
-
-    const { title, introduction, installation, usage, styling } = content[language];
-    const { introduction: introTitle, installation: installTitle, usage: usageTitle, styling: stylingTitle } = titles[language];
+    const t = texts[language];
 
     return (
         <Body>
             <Header />
-            <div className="my-10 flex flex-col items-center">
-                <img src="/cheese.png" className="w-[100px]" />
-                <h1 className="text-2xl font-bold">{title}</h1>
-                <div className="mt-5">
-                    <button className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+            <div className="mt-20 mb-10 flex flex-col">
+                <h1 className="text-[32px] font-bold mb-[12.5px]">Getting Started</h1>
+                <div>
+                    <button
+                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('en')}
                     >
                         English
                     </button>
                     <button
-                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
+                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
                         onClick={() => setLanguage('jp')}
                     >
                         日本語
@@ -66,44 +52,31 @@ export default function Documents() {
                 </div>
             </div>
             <div className="space-y-5">
-                <Card title={introTitle}>
-                    <p>{introduction}</p>
+                <Card title={t.installation}>
+                    <p>{t.installationDesc}</p>
+                    <Code>npm install css-materials</Code>
                 </Card>
-                <Card title={installTitle}>
-                    <p>{installation}</p>
-                    <Code language="bash">
-{`npm install css-materials`}
-                    </Code>
+                <Card title={t.styling}>
+                    <p>{t.stylingDesc}</p>
+                    <Code language="tsx">import 'css-materials/dist/styles.css';</Code>
                 </Card>
-                <Card title={usageTitle}>
-                    <p>{usage}</p>
-                    <Code language="typescript">
-{`import { Checkbox, Slider } from 'css-materials';
-import 'css-materials/dist/styles.css';
+                <Card title={t.finished}>
+                    <p>{t.finishedDesc}</p>
+                    <Code language="tsx">
+{`import { Button } from "css-materials";
 
 const App = () => {
-    const handleSliderChange = (value: number) => {
-        console.log(value);
-    };
-
     return (
-        <div>
-            <Checkbox label="Accept Terms" />
-            <Slider value={50} onChange={handleSliderChange} />
-        </div>
-    );
-};
+        <Button>This is Button!</Button>
+    )
+}
 
-export default App;`}
-                    </Code>
-                </Card>
-                <Card title={stylingTitle}>
-                    <p>{styling}</p>
-                    <Code language="typescript">
-{`import 'css-materials/dist/styles.css';`}
-                    </Code>
+export default App;
+`}</Code>
                 </Card>
             </div>
         </Body>
     );
-}
+};
+
+export default Documents;

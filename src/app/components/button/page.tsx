@@ -19,8 +19,8 @@ const texts = {
         changeShapeDesc: "By default, the rounded shape is applied.",
         changeColorscheme: "Change Colorscheme",
         changeColorschemeDesc: "By default, the blue color is applied.",
-        changeState: "Change State",
-        changeStateDesc: "To change the state, set either disabled or loading to true.",
+        changeState: "Loading Animation",
+        changeStateDesc: "To apply the loading animation, set loading to true.",
     },
     jp: {
         overview: "概要",
@@ -33,12 +33,12 @@ const texts = {
         changeShapeDesc: "デフォルトではroundedが適用されています。",
         changeColorscheme: "カラースキームを変更する",
         changeColorschemeDesc: "デフォルトではblueが適用されています。",
-        changeState: "状態を変更する",
-        changeStateDesc: "状態を変更するにはdisabledとloadingのそれぞれをtrueにします。",
+        changeState: "ローディングアニメーション",
+        changeStateDesc: "ローディングアニメーションを適用するには、loadingをtrueにします。",
     }
 };
 
-const ButtonComponents = () => {
+const Components = () => {
     const [language, setLanguage] = useState<'en' | 'jp'>('en');
 
     const t = texts[language];
@@ -126,17 +126,13 @@ const ButtonComponents = () => {
                 <Card title={t.changeState}>
                     <p>{t.changeStateDesc}</p>
                     <div className="flex border p-2.5 rounded-md space-x-2.5 overflow-x-auto whitespace-nowrap">
-                        <Button colorScheme='gray' disabled>Disabled</Button>
                         <Button loading>Loading</Button>
                     </div>
-                    <Code language='html'>
-{`<Button colorScheme='gray' disabled>Disabled</Button>
-<Button loading>Loading</Button>`}
-                    </Code>
+                    <Code language='html'>{`<Button loading>Loading</Button>`}</Code>
                 </Card>
             </div>
         </Body>
     );
 };
 
-export default ButtonComponents;
+export default Components;
