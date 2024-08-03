@@ -17,6 +17,7 @@ interface InputProps {
     disabled?: boolean;
     icon?: React.ReactNode;
     clearable?: boolean;
+    className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -36,6 +37,7 @@ const Input: React.FC<InputProps> = ({
     disabled = false,
     icon,
     clearable = false,
+    className = '',
 }) => {
     const [inputValue, setInputValue] = useState(value || '');
     const [isFocused, setIsFocused] = useState(false);
@@ -63,7 +65,7 @@ const Input: React.FC<InputProps> = ({
     };
 
     return (
-        <div className={`input-container ${isFocused ? 'focused' : ''} ${isError ? 'error' : ''}`}>
+        <div className={`input-container ${isFocused ? 'focused' : ''} ${isError ? 'error' : ''} ${className}`}>
             {label && <label className="input-label">{label}</label>}
             <div className="input-wrapper">
                 {icon && <span className="input-icon">{icon}</span>}

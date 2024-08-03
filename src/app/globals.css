@@ -15,7 +15,7 @@
   padding: 5px 10px;
 }
 .button-medium {
-  padding: 10px 20px;
+  padding: 9px 18px;
 }
 .button-large {
   padding: 15px 30px;
@@ -521,6 +521,47 @@ input[type="checkbox"] {
 }
 .tab-panel:target {
   display: block;
+}
+
+/* icon */
+.avatar {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #ccc;
+  text-align: center;
+  color: white;
+}
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.avatar-initials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 1em;
+  border-radius: 50%;
+}
+.avatar-small {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+}
+.avatar-medium {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+}
+.avatar-large {
+  width: 80px;
+  height: 80px;
+  font-size: 32px;
 }
 
 @keyframes spin {

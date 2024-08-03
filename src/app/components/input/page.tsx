@@ -7,7 +7,7 @@ import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import Input from '@/components/Input';
-import { FaExternalLinkAlt, FaKey, FaMailBulk } from 'react-icons/fa';
+import { FaEnvelope, FaExternalLinkAlt, FaKey, FaMailBulk } from 'react-icons/fa';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import Link from 'next/link';
 
@@ -112,16 +112,16 @@ const Components = () => {
                 <Card title={t.icon}>
                     <p>{t.iconDesc}</p>
                     <PreviewAreaV>
-                        <Input placeholder="Email" type="email" icon={<FaMailBulk />} />
+                        <Input placeholder="Email" type="email" icon={<FaEnvelope />} />
                         <Input placeholder="Password" type="password" icon={<FaKey />} />
                     </PreviewAreaV>
                     <Code language='tsx'>
-{`import { FaMailBulk, FaKey } from "react-icons/fa";
+{`import { FaEnvelope, FaKey } from "react-icons/fa";
 
 export default function App() {
     return (
         <>
-            <Input placeholder="Email" type="email" icon={<FaMailBulk />} />
+            <Input placeholder="Email" type="email" icon={<FaEnvelope />} />
             <Input placeholder="Password" type="password" icon={<FaKey />} />
         </>
     )

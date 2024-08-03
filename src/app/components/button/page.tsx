@@ -6,6 +6,8 @@ import Card from '@/components/Card';
 import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
+import PreviewAreaV from '@/components/PreviewAreaV';
+import { FaArrowAltCircleRight, FaArrowRight, FaPhone } from 'react-icons/fa';
 
 const texts = {
     en: {
@@ -21,6 +23,8 @@ const texts = {
         changeColorschemeDesc: "By default, the blue color is applied.",
         changeState: "Loading Animation",
         changeStateDesc: "To apply the loading animation, set loading to true.",
+        icon: "Icon",
+        iconDesc: "You can set icons on the left and right using react-icons or similar libraries.",
     },
     jp: {
         overview: "概要",
@@ -35,6 +39,8 @@ const texts = {
         changeColorschemeDesc: "デフォルトではblueが適用されています。",
         changeState: "ローディングアニメーション",
         changeStateDesc: "ローディングアニメーションを適用するには、loadingをtrueにします。",
+        icon: "アイコン",
+        iconDesc: "左右にreact-iconsなどを使ってアイコンを設定することができます。",
     }
 };
 
@@ -129,6 +135,16 @@ const Components = () => {
                         <Button loading>Loading</Button>
                     </div>
                     <Code language='html'>{`<Button loading>Loading</Button>`}</Code>
+                </Card>
+                <Card title={t.icon}>
+                    <p>{t.iconDesc}</p>
+                    <PreviewAreaH>
+                        <Button colorScheme='green' leftIcon={<FaPhone />}>Left Icon</Button>
+                        <Button rightIcon={<FaArrowRight />}>Right Icon</Button>
+                    </PreviewAreaH>
+                    <Code language='html'>
+{`<Button colorScheme='green' leftIcon={<FaPhone />}>Left Icon</Button>
+<Button rightIcon={<FaArrowRight />}>Right Icon</Button>`}</Code>
                 </Card>
             </div>
         </Body>

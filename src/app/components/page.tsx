@@ -47,6 +47,13 @@ export default function Home() {
                 </div>
             </Card>
         ) },
+        { name: 'Avatar', content: (
+            <Card title="Avatar" href="/components/avatar">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/avatar.png" />
+                </div>
+            </Card>
+        ) },
         { name: 'Button', content: (
             <Card title="Button" href="/components/button">
                 <div className="flex items-center justify-center">
