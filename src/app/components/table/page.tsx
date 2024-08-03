@@ -19,13 +19,6 @@ const texts = {
         import: "Import",
         usage: "Usage",
         usageDesc: "Define the structure and display labels of each column in the table using the columns array, and define the data rows to be displayed in the table using the data array.",
-        pattern: "Pattern",
-        patternDesc: "You can make detailed configurations using regular expressions.",
-        readOnly: "Read Only",
-        disabled: "Disabled",
-        clearable: "Clearable",
-        icon: "Icon",
-        iconDesc: "You can set icons such as those from react-icons.",
     },
     jp: {
         overview: "概要",
@@ -33,13 +26,6 @@ const texts = {
         import: "インポート",
         usage: "使い方",
         usageDesc: "columns配列でテーブルの各列の構造と表示ラベルを、data配列でテーブルに表示するデータ行を定義します。",
-        pattern: "パターン",
-        patternDesc: "正規表現を使って、細かく設定することができます。",
-        readOnly: "読み取り専用",
-        disabled: "無効化",
-        clearable: "消去可能",
-        icon: "アイコン",
-        iconDesc: "react-iconsなどのアイコンを設定することができます。",
     }
 };
 

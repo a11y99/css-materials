@@ -474,6 +474,49 @@ input[type="checkbox"] {
   background-color: #e6edf3;
 }
 
+/* tabs */
+.tab-list {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  position: relative;
+}
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  position: relative;
+  transition: color 0.25s;
+}
+.tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+.tab.active::after {
+  background-color: #2da0ff;
+}
+.tab.disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+.tab-content {
+  padding: 20px;
+  border-top: none;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel:target {
+  display: block;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

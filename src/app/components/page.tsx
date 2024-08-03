@@ -110,6 +110,13 @@ export default function Home() {
                 </div>
             </Card>
         )},
+        { name: "Tabs", content: (
+            <Card title="Tabs" href="/components/tabs">
+                <div className="flex items-center justify-center">
+                    <img src="/summary/tabs.png" />
+                </div>
+            </Card>
+        )},
     ];
 
     const filteredComponents = useMemo(() => {
