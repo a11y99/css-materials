@@ -76,6 +76,12 @@
 .spin-path {
   opacity: 0.75;
 }
+.left-icon {
+  margin-right: 10px;
+}
+.right-icon {
+  margin-left: 10px;
+}
 
 /* slider */
 .slider {

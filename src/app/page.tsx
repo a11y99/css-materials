@@ -24,7 +24,7 @@ export default function Home() {
           </div>
           <div className="space-x-2.5 flex justify-center">
             <Link href="/docs/getting-started"><Button colorScheme='orange'>Get Started</Button></Link>
-            <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray'><FaGithub className="mr-2.5 text-lg" />GitHub</Button></Link>
+            <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray' leftIcon={<FaGithub className="text-lg" />}>GitHub</Button></Link>
           </div>
         </div>
       </div>

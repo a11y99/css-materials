@@ -3,13 +3,15 @@ import Spinner from './Spinner';
 
 type ButtonProps = {
     colorScheme?: string;
-    children?: React.ReactNode;
+    children: React.ReactNode;
     onClick?: () => void;
     className?: string;
     loading?: boolean;
     disabled?: boolean;
     size?: 'small' | 'medium' | 'large';
     shape?: 'rounded' | 'square' | 'circular';
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -20,7 +22,9 @@ const Button: React.FC<ButtonProps> = ({
     loading = false,
     disabled = false,
     size = 'medium',
-    shape = 'rounded'
+    shape = 'rounded',
+    leftIcon,
+    rightIcon
 }) => {
     const sizeClass = size ? `button-${size}` : '';
     const shapeClass = shape ? `button-${shape}` : '';
@@ -32,7 +36,9 @@ const Button: React.FC<ButtonProps> = ({
             disabled={loading || disabled}
         >
             {loading && <Spinner />}
+            {!loading && leftIcon && <span className="left-icon">{leftIcon}</span>}
             {children}
+            {!loading && rightIcon && <span className="right-icon">{rightIcon}</span>}
         </button>
     );
 };
