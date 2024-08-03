@@ -60,7 +60,7 @@ const Documents = () => {
                 </Card>
                 <Card title={t.styling}>
                     <p>{t.stylingDesc}</p>
-                    <Code language="tsx">import 'css-materials/dist/styles.css';</Code>
+                    <Code language="tsx">{`import 'css-materials/dist/styles.css';`}</Code>
                 </Card>
                 <Card title={t.finished}>
                     <p>{t.finishedDesc}</p>
