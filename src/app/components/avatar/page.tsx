@@ -3,13 +3,12 @@ import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
+import Code from "@/components/Code"
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import Avatar from '@/components/Avatar';
-import { FaUser } from 'react-icons/fa';
-import { FiUser } from 'react-icons/fi';
+import { FiAirplay, FiAnchor, FiAperture, FiArchive, FiHeart, FiUser } from 'react-icons/fi';
 
 const texts = {
     en: {
@@ -22,6 +21,7 @@ const texts = {
         bgColor: "Set Background Color",
         bgColorDesc: "Specifies the background color when no image is set. The default color is #CCC.",
         icon: "Set Icon",
+        iconDesc: "Set the icon to be displayed when an image is not set.",
     },
     jp: {
         overview: "概要",
@@ -33,6 +33,7 @@ const texts = {
         bgColor: "背景色を設定する",
         bgColorDesc: "画像が設定されていない場合の背景色を指定します。デフォルトは#CCCです。",
         icon: "アイコンを設定する",
+        iconDesc: "画像が設定されていない場合に表示されるアイコンを設定します。",
     }
 };
 
@@ -76,7 +77,7 @@ const Components = () => {
                 </Card>
                 <Card title={t.changeSize}>
                     <p>{t.changeSizeDesc}</p>
-                    <div className="p-2.5 flex space-x-2.5 border rounded-md">
+                    <div className="p-2.5 flex space-x-2.5 border rounded-md overflow-x-auto">
                         <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" size="large" />
                         <Avatar name="Kent Dodds" src="https://bit.ly/kent-c-dodds" size="medium" />
                         <Avatar name="Prosper Otemuyiwa" src="https://bit.ly/prosper-baba" size="small" />
@@ -97,10 +98,18 @@ const Components = () => {
                     <Code language='html'>{`<Avatar name="オダギリジョー" bgColor="#FF5733" />`}</Code>
                 </Card>
                 <Card title={t.icon}>
+                    <p>{t.iconDesc}</p>
                     <div className='flex p-2.5 space-x-2.5 border rounded-md'>
-                        <Avatar icon={<FiUser />} />
+                        <Avatar icon={<FiAirplay />} bgColor='#e7a490' size='small' />
+                        <Avatar icon={<FiAnchor />} bgColor='#4513a1' size='medium' />
+                        <Avatar icon={<FiAperture />} bgColor='#0ac451' size='large' />
+                        <Avatar icon={<FiArchive />} bgColor='#f84cad' size={64} />
                     </div>
-                    <Code language='html'>{`<Avatar icon={<FiUser />} />`}</Code>
+                    <Code language='html'>
+{`<Avatar icon={<FiAirplay />} bgColor="#e7a490" size="small" />
+<Avatar icon={<FiAnchor />} bgColor='#4513a1' size='medium' />
+<Avatar icon={<FiAperture />} bgColor='#0ac451' size='large' />
+<Avatar icon={<FiArchive />} bgColor='#f84cad' size={64} />`}</Code>
                 </Card>
             </div>
         </Body>

@@ -1,17 +1,8 @@
 "use client"
 import React, { useState, useMemo } from 'react';
-import Button from '@/components/Button';
-import Slider from '@/components/Slider';
 import Input from '@/components/Input';
-import AlertDialog from '@/components/AlertDialog';
-import Link from 'next/link';
-import Modal from '@/components/Modal';
-import Checkbox from '@/components/Checkbox';
-import Radio from '@/components/Radio';
-import { FiCheckCircle, FiXCircle, FiAlertCircle, FiInfo } from "react-icons/fi";
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
 import Body from '@/components/Body';
 import { FaSearch } from 'react-icons/fa';
 
@@ -75,13 +66,6 @@ export default function Home() {
                 </div>
             </Card>
         ) },
-        { name: 'Code', content: (
-            <Card title="Code" href="/components/code">
-                <div className="flex items-center justify-center">
-                    <img src="/summary/code.png" />
-                </div>
-            </Card>
-        ) },
         { name: 'Input', content: (
             <Card title="Input" href="/components/input">
                 <div className="flex items-center justify-center">
@@ -135,7 +119,7 @@ export default function Home() {
     return (
         <Body>
             <Header />
-            <div className="mt-20 mb-10">
+            <div className="mt-20">
                 <p className="text-[32px] font-bold mb-[12.5px]">Components</p>
                 <Input placeholder='Enter to search components...' onChange={handleSearchChange} icon={<FaSearch />} />
             </div>
@@ -147,7 +131,7 @@ export default function Home() {
                 </div>
             )}
             {/* Components */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
                 {filteredComponents.map((component, index) => (
                     <div key={index}>
                         {component.content}

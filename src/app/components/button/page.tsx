@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import { FaArrowAltCircleRight, FaArrowRight, FaPhone } from 'react-icons/fa';
+import Code from '@/components/Code';
 
 const texts = {
     en: {
@@ -78,9 +78,9 @@ const Components = () => {
                 </Card>
                 <Card title={t.usage}>
                     <PreviewAreaH>
-                        <Button>Button</Button>
+                        <Button>This is Button</Button>
                     </PreviewAreaH>
-                    <Code language='html'>{`<Button>Button</Button>`}</Code>
+                    <Code language='html'>{`<Button>This is Button</Button>`}</Code>
                 </Card>
                 <Card title={t.changeSize}>
                     <p>{t.changeSizeDesc}</p>

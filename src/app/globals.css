@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* button */
-.button {
+/* .button {
   padding: 10px 17.5px;
   border-radius: 99em;
   font-weight: bold;
@@ -236,54 +236,6 @@
   font-size: 0.875rem;
 }
 
-/* alert_dialog */
-.alert-dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.alert-dialog-content {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  animation: fadeIn 0.3s ease;
-}
-.alert-dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-.alert-dialog-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-.alert-dialog-body {
-  font-size: 16px;
-}
-.alert-dialog-footer {
-  text-align: right;
-}
-.close-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
 /* modal */
 .modal-overlay {
   position: fixed;
@@ -506,7 +458,7 @@ input[type="checkbox"] {
   transition: background-color 0.25s;
 }
 .tab.active::after {
-  background-color: #2da0ff;
+  background-color: #007bff;
 }
 .tab.disabled {
   color: #aaa;
@@ -526,6 +478,7 @@ input[type="checkbox"] {
 /* icon */
 .avatar {
   display: inline-block;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
@@ -564,6 +517,141 @@ input[type="checkbox"] {
   width: 80px;
   height: 80px;
   font-size: 32px;
+}
+
+/* alert_dialog */
+.alert-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.alert-dialog {
+  background-color: white;
+  border-radius: 7.5px;
+  width: 90%;
+  max-width: 500px;
+  overflow: hidden;
+  padding: 30px;
+  box-shadow: 0px 0px 5px 5px #0000000d;
+}
+.alert-dialog-header, .alert-dialog-body {
+  margin-bottom: 16px;
+}
+.alert-dialog-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+.alert-dialog-body p {
+  margin: 0;
+}
+.alert-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.alert-dialog-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.alert-dialog-button.cancel {
+  background-color: #ddd;
+  color: #333;
+}
+.alert-dialog-button.confirm {
+  background-color: #007bff;
+  color: white;
+}
+.alert-dialog-button:hover {
+  opacity: 0.9;
+}
+
+/* button */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, .05);
+  transition: filter .25s;
+}
+.button.rounded {
+  border-radius: 4px;
+}
+.button.pill {
+  border-radius: 15px;
+}
+.button.circle {
+  border-radius: 99em;
+}
+.button:hover {
+  filter: opacity(75%);
+}
+.button.primary {
+  background-color: #007bff;
+  color: white;
+}
+.button.secondary {
+  background-color: #fff;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+.button.danger {
+  background-color: #fff;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+.button.small {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.button.medium {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+.button.large {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+.button-icon {
+  display: inline-flex;
+  align-items: center;
+}
+.button.disabled {
+  opacity: 75%;
+  cursor: not-allowed;
+}
+.loading-icon {
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+.loading-icon.primary {
+  border: 2px solid rgba(255, 255, 255, .1);
+  border-left-color: rgba(255, 255, 255, .5);
+}
+.loading-icon.secondary {
+  border: 2px solid rgba(0, 123, 255, .5);
+  border-left-color: #007bff;
+}
+.loading-icon.danger {
+  border: 2px solid rgba(220, 53, 69, .5);
+  border-left-color: #dc3545;
 }
 
 @keyframes spin {
