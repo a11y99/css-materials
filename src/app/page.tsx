@@ -5,9 +5,7 @@ import Button from '@/components/Button';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
 import Input from '@/components/Input';
-import AlertDialog from '@/components/AlertDialog';
 
 export default function Home() {
   return (
