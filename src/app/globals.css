@@ -635,6 +635,10 @@ input[type="checkbox"] {
   opacity: 75%;
   cursor: not-allowed;
 }
+.button.loading {
+  opacity: 75%;
+  cursor: not-allowed;
+}
 .loading-icon {
   border-radius: 50%;
   width: 16px;

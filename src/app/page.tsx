@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Header from '@/components/Header';
-import Button from '@/components/Button';
+import Button from '@/components/css-materials/Button';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
 import Card from '@/components/Card';
@@ -21,8 +21,8 @@ export default function Home() {
             <img src="/media_kit/text-only.png" className="w-[200px]" />
           </div>
           <div className="space-x-2.5 flex justify-center">
-            <Link href="/docs/getting-started"><Button colorScheme='orange'>Get Started</Button></Link>
-            <Link href="https://github.com/hn-104/css-materials"><Button colorScheme='gray' leftIcon={<FaGithub className="text-lg" />}>GitHub</Button></Link>
+            <Link href="/docs/getting-started"><Button text="Get Started" variant='primary' /></Link>
+            <Link href="https://github.com/hn-104/css-materials"><Button text="GitHub" variant='secondary' icon={<FaGithub className="text-lg" />} /></Link>
           </div>
         </div>
       </div>

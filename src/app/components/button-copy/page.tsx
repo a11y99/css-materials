@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from 'react';
-import Button from '@/components/css-materials/Button';
+import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
-import { FaArrowAltCircleRight, FaArrowRight, FaPhone, FaSmile } from 'react-icons/fa';
+import { FaArrowAltCircleRight, FaArrowRight, FaPhone } from 'react-icons/fa';
 import Code from '@/components/Code';
 
 const texts = {
@@ -25,8 +25,6 @@ const texts = {
         changeStateDesc: "To apply the loading animation, set loading to true.",
         icon: "Icon",
         iconDesc: "You can set icons on the left and right using react-icons or similar libraries.",
-        variants: "Variants",
-        variantsDesc: "By default, the primary is applied.",
     },
     jp: {
         overview: "概要",
@@ -43,8 +41,6 @@ const texts = {
         changeStateDesc: "ローディングアニメーションを適用するには、loadingをtrueにします。",
         icon: "アイコン",
         iconDesc: "左右にreact-iconsなどを使ってアイコンを設定することができます。",
-        variants: "バリアント",
-        variantsDesc: "デフォルトではprimaryが適用されています。",
     }
 };
 
@@ -82,29 +78,16 @@ const Components = () => {
                 </Card>
                 <Card title={t.usage}>
                     <PreviewAreaH>
-                        <Button text="This is Button" />
+                        <Button>This is Button</Button>
                     </PreviewAreaH>
                     <Code language='html'>{`<Button>This is Button</Button>`}</Code>
-                </Card>
-                <Card title={t.variants}>
-                    <p>{t.variantsDesc}</p>
-                    <PreviewAreaH>
-                        <Button text="Primary" variant='primary' />
-                        <Button text="Secondary" variant='secondary' />
-                        <Button text="Danger" variant='danger' />
-                    </PreviewAreaH>
-                    <Code language='html'>
-{`<Button text="Primary" variant='primary' />
-<Button text="Secondary" variant='secondary' />
-<Button text="Danger" variant='danger' />`}
-                    </Code>
                 </Card>
                 <Card title={t.changeSize}>
                     <p>{t.changeSizeDesc}</p>
                     <PreviewAreaH>
-                        <Button text="Small" size="small" />
-                        <Button text="Medium" size="medium" />
-                        <Button text="Large" size="large" />
+                        <Button size="small">Small</Button>
+                        <Button size="medium">Medium</Button>
+                        <Button size="large">Large</Button>
                     </PreviewAreaH>
                     <Code language='html'>
 {`<Button size="small">Small</Button>
@@ -115,9 +98,9 @@ const Components = () => {
                 <Card title={t.changeShape}>
                     <p>{t.changeShapeDesc}</p>
                     <PreviewAreaH>
-                        <Button text="Rounded" shape='rounded' />
-                        <Button text="Pill" shape='pill' />
-                        <Button text="Circle" shape='circle' />
+                        <Button shape="square">Square</Button>
+                        <Button shape="rounded">Rounded</Button>
+                        <Button shape="circular">Circular</Button>
                     </PreviewAreaH>
                     <Code language='html'>
 {`<Button shape="square">Square</Button>
@@ -125,17 +108,39 @@ const Components = () => {
 <Button shape="circular">Circular</Button>`}
                     </Code>
                 </Card>
+                <Card title={t.changeColorscheme}>
+                    <p>{t.changeColorschemeDesc}</p>
+                    <PreviewAreaH>
+                        <Button colorScheme="red">Red</Button>
+                        <Button colorScheme="orange">Orange</Button>
+                        <Button colorScheme="yellow">Yellow</Button>
+                        <Button colorScheme="green">Green</Button>
+                        <Button colorScheme="blue">Blue</Button>
+                        <Button colorScheme="purple">Purple</Button>
+                        <Button colorScheme="gray">Gray</Button>
+                    </PreviewAreaH>
+                    <Code language='html'>
+{`<Button colorScheme="red">Red</Button>
+<Button colorScheme="orange">Orange</Button>
+<Button colorScheme="yellow">Yellow</Button>
+<Button colorScheme="green">Green</Button>
+<Button colorScheme="blue">Blue</Button>
+<Button colorScheme="purple">Purple</Button>
+<Button colorScheme="gray">Gray</Button>`}
+                    </Code>
+                </Card>
                 <Card title={t.changeState}>
                     <p>{t.changeStateDesc}</p>
                     <div className="flex border p-2.5 rounded-md space-x-2.5 overflow-x-auto whitespace-nowrap">
-                        <Button text="Loading" loading />
+                        <Button loading>Loading</Button>
                     </div>
                     <Code language='html'>{`<Button loading>Loading</Button>`}</Code>
                 </Card>
                 <Card title={t.icon}>
                     <p>{t.iconDesc}</p>
                     <PreviewAreaH>
-                        <Button text="Icon Button" icon={<FaSmile />} />
+                        <Button colorScheme='green' leftIcon={<FaPhone />}>Left Icon</Button>
+                        <Button rightIcon={<FaArrowRight />}>Right Icon</Button>
                     </PreviewAreaH>
                     <Code language='html'>
 {`<Button colorScheme='green' leftIcon={<FaPhone />}>Left Icon</Button>

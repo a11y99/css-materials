@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
     return (
         <button
-            className={`button ${variant} ${size} ${shape} ${disabled ? 'disabled' : ''}`}
+            className={`button ${variant} ${size} ${shape} ${disabled ? 'disabled' : ''} ${loading ? 'loading' : ''}`}
             onClick={onClick}
             disabled={disabled || loading}
         >
