@@ -10,6 +10,7 @@ import Button from '@/components/css-materials/Button';
 import CodeBlock from '@/components/CodeBlock';
 import Sidebar from '@/components/SideBar';
 import Footer from '@/components/Footer';
+import PreviewArea from '@/components/PreviewAreaH';
 
 const texts = {
     en: {
@@ -50,6 +51,11 @@ const Components = () => {
         }, 2000);
     };
 
+    const showAlert = () => {
+        alert("Unsaved changes will be lost.");
+        handleDialogClose();
+    };
+
     return (
         <div className="flex">
             <Header />
@@ -81,29 +87,23 @@ const Components = () => {
                     <Card title={t.import}>
                         <Code language='ts'>{`import { AlertDialog } from "css-materials";`}</Code>
                     </Card>
-                    <div className="space-y-2.5">
-                        <h1 className="text-xl font-bold">{t.usage}</h1>
-                        <div className="p-2.5 border rounded-md">
+                    <Card title={t.usage}>
+                        <PreviewArea>
                             <Button text="Open Alert Dialog" onClick={handleDialogOpen}  />
-                        </div>
-                        <Code language='tsx'>
-    {`<AlertDialog
-        isOpen={isDialogOpen}
-        onClose={handleDialogClose}
-        title="Unsaved Changes"
-        message="You have unsaved changes. Are you sure you want to leave without saving?"
-    />`}</Code>
-                    </div>
-                    <Card title="Alert Dialog">
-                        <Button text="Open Alert Dialog" onClick={handleButtonClick} variant="primary" size="medium" icon={<FiAlertCircle />} loading={isLoading} />
-                        <Button text="Secondary Action" onClick={() => console.log('Secondary')} variant="secondary" size="large" icon={<FiCheck />} />
-                        <Button text="Delete" onClick={() => console.log('Delete')} variant="danger" size="small" icon={<FiTrash2 />} disabled />
-                        <AlertDialog
-                            isOpen={isDialogOpen}
-                            onClose={handleDialogClose}
-                            title="Unsaved Changes"
-                            message="You have unsaved changes. Are you sure you want to leave without saving?"
-                        />
+                        </PreviewArea>
+                    <Code language='tsx'>
+{`<AlertDialog
+    isOpen={isDialogOpen}
+    onClose={handleDialogClose}
+    title="Unsaved Changes"
+    message="You have unsaved changes. Are you sure you want to leave without saving?"
+/>`}</Code>
+                    <AlertDialog
+                        isOpen={isDialogOpen}
+                        onClose={handleDialogClose}
+                        title="Unsaved Changes"
+                        message="You have unsaved changes. Are you sure you want to leave without saving?"
+                    />
                     </Card>
                 </div>
                 <Footer />

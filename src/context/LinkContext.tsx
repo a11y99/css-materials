@@ -15,6 +15,8 @@ const linkItems: LinkItem[] = [
     { name: 'AlertDialog', href: '/components/alert-dialog', size: 'small' },
     { name: 'Button', href: '/components/button', size: 'small' },
     { name: 'Input', href: '/components/input', size: 'small' },
+    { name: 'Table', href: '/components/table', size: 'small' },
+    { name: 'Tabs', href: '/components/tabs', size: 'small' },
     //
     { name: 'FAQ', href: '/faq', icon: <FiHelpCircle />, size: 'large' },
 ];

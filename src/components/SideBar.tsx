@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Input from './css-materials/Input';
 import { FaSearch } from 'react-icons/fa';
 import { useLinks } from '@/context/LinkContext';
+import Link from 'next/link';
 
 const Sidebar: React.FC = () => {
     const linkItems = useLinks();
     const [searchQuery, setSearchQuery] = useState('');
 
-    const handleSearchChange = (value: string) => {
-        setSearchQuery(value);
+    const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
     };
 
     const filteredLinks = linkItems.filter(item =>
@@ -29,16 +30,16 @@ const Sidebar: React.FC = () => {
                         {filteredLinks.map((item) => (
                             <li key={item.name}>
                                 {item.href ? (
-                                    <a
+                                    <Link
                                         href={item.href}
-                                        className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                        className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
                                     >
                                         {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                         {item.name}
-                                    </a>
+                                    </Link>
                                 ) : (
                                     <div
-                                        className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                        className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
                                     >
                                         {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                         {item.name}

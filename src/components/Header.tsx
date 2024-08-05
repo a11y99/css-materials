@@ -36,16 +36,16 @@ export default function Header() {
                             {linkItems.map((item) => (
                                 <li key={item.name}>
                                     {item.href ? (
-                                        <a
+                                        <Link
                                             href={item.href}
-                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
                                         >
                                         {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                         {item.name}
-                                        </a>
+                                        </Link>
                                     ) : (
                                         <div
-                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
                                         >
                                         {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                         {item.name}

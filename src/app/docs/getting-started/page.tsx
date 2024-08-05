@@ -35,6 +35,10 @@ const Documents = () => {
 
     const t = texts[language];
 
+    const highlights = [
+        { text: 'Button', color: '#E6C07B' },
+    ];
+
     return (
         <div className="flex">
             <Header />
@@ -70,17 +74,16 @@ const Documents = () => {
                     </Card>
                     <Card title={t.finished}>
                         <p>{t.finishedDesc}</p>
-                        <Code language="tsx">
-    {`import { Button } from "css-materials";
+                        <Code language="tsx" highlights={highlights}>
+{`import { Button } from "css-materials";
 
-    const App = () => {
-        return (
-            <Button>This is Button!</Button>
-        )
-    }
+const App = () => {
+    return (
+        <Button>This is fine.</Button>
+    )
+}
 
-    export default App;
-    `}</Code>
+export default App;`}</Code>
                     </Card>
                 </div>
                 <Footer />

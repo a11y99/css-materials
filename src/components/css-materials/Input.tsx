@@ -5,7 +5,7 @@ interface InputProps {
     placeholder?: string;
     type?: 'text' | 'password' | 'email' | 'number' | 'tel';
     value?: string;
-    onChange?: (value: string) => void;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
     required?: boolean;
@@ -47,7 +47,7 @@ const Input: React.FC<InputProps> = ({
         const newValue = event.target.value;
         setInputValue(newValue);
         if (onChange) {
-            onChange(newValue);
+            onChange(event);
         }
         if (
             (required && newValue === '') ||
@@ -64,7 +64,8 @@ const Input: React.FC<InputProps> = ({
     const handleClear = () => {
         setInputValue('');
         if (onChange) {
-            onChange('');
+            const fakeEvent = { target: { value: '' } } as ChangeEvent<HTMLInputElement>;
+            onChange(fakeEvent);
         }
         setIsError(false);
     };
@@ -78,7 +79,7 @@ const Input: React.FC<InputProps> = ({
                     type={type}
                     value={inputValue}
                     placeholder={placeholder}
-                    onChange={(e) => handleChange(e)} // ここでhandleChangeを直接呼び出す
+                    onChange={handleChange}
                     onFocus={(e) => {
                         setIsFocused(true);
                         if (onFocus) onFocus(e);

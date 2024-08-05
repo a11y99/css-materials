@@ -6,10 +6,11 @@ import Card from '@/components/Card';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
-import { FaArrowAltCircleRight, FaArrowRight, FaPhone, FaSmile } from 'react-icons/fa';
+import { FaAngry, FaArrowAltCircleRight, FaArrowRight, FaPhone, FaSmile } from 'react-icons/fa';
 import Code from '@/components/Code';
 import Sidebar from '@/components/SideBar';
 import Footer from '@/components/Footer';
+import { FaFaceDizzy } from 'react-icons/fa6';
 
 const texts = {
     en: {
@@ -140,8 +141,12 @@ const Components = () => {
                         <p>{t.iconDesc}</p>
                         <PreviewAreaH>
                             <Button text="Icon Button" icon={<FaSmile />} />
+                            <Button text="Icon Button" variant='secondary' icon={<FaFaceDizzy />} />
+                            <Button text="Icon Button" variant='danger' icon={<FaAngry />} />
                         </PreviewAreaH>
                         <Code language='tsx'>{`<Button text="Icon Button" icon={<FaSmile />} />`}</Code>
+                        <Code language='tsx'>{`<Button text="Icon Button" variant='secondary' icon={<FaFaceDizzy />} />`}</Code>
+                        <Code language='tsx'>{`<Button text="Icon Button" variant='danger' icon={<FaAngry />} />`}</Code>
                     </Card>
                 </div>
                 <Footer />

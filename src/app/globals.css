@@ -2,87 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* button */
-/* .button {
-  padding: 10px 17.5px;
-  border-radius: 99em;
-  font-weight: bold;
-  display: inline-flex;
-  align-items: center;
-  outline: none;
-}
-.button-small {
-  padding: 5px 10px;
-}
-.button-medium {
-  padding: 9px 18px;
-}
-.button-large {
-  padding: 15px 30px;
-}
-.button-rounded {
-  border-radius: 15px;
-}
-.button-square {
-  border-radius: 5px;
-}
-.button-circular {
-  border-radius: 99em;
-}
-/* Color schemes */
-.orange-button {
-  background-color: rgb(249, 115, 22);
-  color: #FFF;
-}
-.blue-button {
-  background-color: rgb(45, 160, 255);
-  color: #FFF;
-}
-.purple-button {
-  background-color: rgb(168, 85, 247);
-  color: #FFF;
-}
-.gray-button {
-  background-color: #F3F4F6;
-  color: #111;
-}
-.red-button {
-  background-color: rgb(239 68 68);
-  color: #FFF;
-}
-.yellow-button {
-  background-color: rgb(245 158 11);
-  color: #FFF;
-}
-.green-button {
-  background-color: #22c55e;
-  color: #FFF;
-}
-/* Disabled state */
-.disabled-button {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.spin {
-  margin-right: 0.625rem; /* 10px, mr-2.5 */
-  height: 1.25rem; /* 20px, h-5 */
-  width: 1.25rem; /* 20px, w-5 */
-  color: #ffffff; /* text-white */
-  animation: spin 1s linear infinite;
-}
-.spin-circle {
-  opacity: 0.25;
-}
-.spin-path {
-  opacity: 0.75;
-}
-.left-icon {
-  margin-right: 10px;
-}
-.right-icon {
-  margin-left: 10px;
-}
-
 /* slider */
 .slider {
   -webkit-appearance: none;
@@ -530,7 +449,7 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 1100;
 }
 .alert-dialog {
   background-color: white;
@@ -540,6 +459,7 @@ input[type="checkbox"] {
   overflow: hidden;
   padding: 30px;
   box-shadow: 0px 0px 5px 5px #0000000d;
+  animation: fadeIn .25s ease-in-out;
 }
 .alert-dialog-header, .alert-dialog-body {
   margin-bottom: 16px;

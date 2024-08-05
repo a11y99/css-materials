@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import Input from '@/components/Input';
@@ -11,6 +10,9 @@ import { FaExternalLinkAlt, FaKey, FaMailBulk } from 'react-icons/fa';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import Link from 'next/link';
 import Table from '@/components/Table';
+import Code from '@/components/Code';
+import Sidebar from '@/components/SideBar';
+import Footer from '@/components/Footer';
 
 const texts = {
     en: {
@@ -46,38 +48,42 @@ const Components = () => {
     ];
 
     return (
-        <Body>
+        <div className="flex">
             <Header />
-            <div className="mt-20 mb-10 flex flex-col">
-                <h1 className="text-[32px] font-bold mb-[12.5px]">Table</h1>
-                <div>
-                    <button
-                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('en')}
-                    >
-                        English
-                    </button>
-                    <button
-                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('jp')}
-                    >
-                        日本語
-                    </button>
-                </div>
+            <div className="w-[25%] hidden md:block">
+                <Sidebar />
             </div>
-            <div className="space-y-5">
-                <Card title={t.overview}>
-                    {t.overviewDesc}
-                </Card>
-                <Card title={t.import}>
-                    <Code language='tsx'>{`import { Table } from "css-materials";`}</Code>
-                </Card>
-                <Card title={t.usage}>
-                    <p>{t.usageDesc}</p>
-                    <PreviewAreaV>
-                        <Table columns={columns} data={data} />
-                    </PreviewAreaV>
-                    <Code language="ts">
+            <div className="w-[90%] mx-auto md:w-[75%] md:px-5">
+                <div className="mt-24 mb-10 flex flex-col">
+                    <h1 className="text-[32px] font-bold mb-[12.5px]">Table</h1>
+                    <div>
+                        <button
+                            className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('en')}
+                        >
+                            English
+                        </button>
+                        <button
+                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('jp')}
+                        >
+                            日本語
+                        </button>
+                    </div>
+                </div>
+                <div className="space-y-10">
+                    <Card title={t.overview}>
+                        {t.overviewDesc}
+                    </Card>
+                    <Card title={t.import}>
+                        <Code language='tsx'>{`import { Table } from "css-materials";`}</Code>
+                    </Card>
+                    <Card title={t.usage}>
+                        <p>{t.usageDesc}</p>
+                        <PreviewAreaV>
+                            <Table columns={columns} data={data} />
+                        </PreviewAreaV>
+                        <Code language="ts">
 {`const columns = [
     { key: 'name', label: 'Name' },
     { key: 'age', label: 'Age' },
@@ -88,10 +94,12 @@ const data = [
     { name: 'John Doe', age: 28, address: '1234 Elm St' },
     { name: 'Jane Smith', age: 34, address: '5678 Oak St' },
 ];`}</Code>
-                    <Code language='html'>{`<Table columns={columns} data={data} />`}</Code>
-                </Card>
+                        <Code language='html'>{`<Table columns={columns} data={data} />`}</Code>
+                    </Card>
+                </div>
+                <Footer />
             </div>
-        </Body>
+        </div>
     );
 };
 

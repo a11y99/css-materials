@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps {
-    text: string;
+    text?: string;
     onClick?: () => void;
     variant?: 'primary' | 'secondary' | 'danger';
     size?: 'small' | 'medium' | 'large';
@@ -9,6 +9,7 @@ interface ButtonProps {
     disabled?: boolean;
     loading?: boolean;
     shape?: 'rounded' | 'pill' | 'circle';
+    children?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,7 +20,8 @@ const Button: React.FC<ButtonProps> = ({
     icon,
     disabled = false,
     loading = false,
-    shape = 'rounded'
+    shape = 'rounded',
+    children
 }) => {
     return (
         <button
@@ -28,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
             disabled={disabled || loading}
         >
         {loading ? <span className={`loading-icon ${variant}`}></span> : icon && <span className="button-icon">{icon}</span>}
-            {text}
+            {children || text}
         </button>
     );
 }
