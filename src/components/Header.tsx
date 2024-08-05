@@ -2,9 +2,12 @@ import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { useLinks } from '@/context/LinkContext';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+
+    const linkItems = useLinks();
 
     return (
         <div>
@@ -17,9 +20,6 @@ export default function Header() {
                         </button>
                     </div>
                     <div className="hidden md:flex ml-auto space-x-5">
-                        <Link href="/docs/getting-started">Docs</Link>
-                        <Link href="https://example-css-materials.vercel.app">Example</Link>
-                        <Link href="/components">Components</Link>
                         <Link href="https://github.com/hn-104/css-materials" className="flex items-center"><FaGithub className="text-2xl text-gray-500" /></Link>
                     </div>
                 </div>
@@ -29,9 +29,32 @@ export default function Header() {
                     <div className="flex">
                         <Link href="https://github.com/hn-104/css-materials"><FaGithub className="text-[32px] text-gray-500" /></Link>
                     </div>
-                    <Link href="/docs/getting-started">Docs</Link>
-                    <Link href="https://example-css-materials.vercel.app">Example</Link>
-                    <Link href="/components">Components</Link>
+                </div>
+                <div className="px-5">
+                    <nav>
+                        <ul className="space-y-2.5">
+                            {linkItems.map((item) => (
+                                <li key={item.name}>
+                                    {item.href ? (
+                                        <a
+                                            href={item.href}
+                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                        >
+                                        {item.icon && <span className="mr-2.5">{item.icon}</span>}
+                                        {item.name}
+                                        </a>
+                                    ) : (
+                                        <div
+                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm opacity-50'}`}
+                                        >
+                                        {item.icon && <span className="mr-2.5">{item.icon}</span>}
+                                        {item.name}
+                                        </div>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

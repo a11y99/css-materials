@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Button from '@/components/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Code from '@/components/Code';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
+import Code from '@/components/Code';
+import Sidebar from '@/components/SideBar';
+import Footer from '@/components/Footer';
 
 const texts = {
     en: {
@@ -34,50 +36,56 @@ const Documents = () => {
     const t = texts[language];
 
     return (
-        <Body>
+        <div className="flex">
             <Header />
-            <div className="mt-20 mb-10 flex flex-col">
-                <h1 className="text-[32px] font-bold mb-[12.5px]">{t.title}</h1>
-                <div>
-                    <button
-                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('en')}
-                    >
-                        English
-                    </button>
-                    <button
-                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('jp')}
-                    >
-                        日本語
-                    </button>
+            <div className="w-[25%] hidden md:block">
+                <Sidebar />
+            </div>
+            <div className="w-[90%] mx-auto md:w-[75%] md:px-5">
+                <div className="mt-24 mb-10 flex flex-col">
+                    <h1 className="text-[32px] font-bold mb-[12.5px]">{t.title}</h1>
+                    <div>
+                        <button
+                            className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('en')}
+                        >
+                            English
+                        </button>
+                        <button
+                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('jp')}
+                        >
+                            日本語
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div className="space-y-5">
-                <Card title={t.installation}>
-                    <p>{t.installationDesc}</p>
-                    <Code>npm install css-materials</Code>
-                </Card>
-                <Card title={t.styling}>
-                    <p>{t.stylingDesc}</p>
-                    <Code language="tsx">{`import 'css-materials/dist/styles.css';`}</Code>
-                </Card>
-                <Card title={t.finished}>
-                    <p>{t.finishedDesc}</p>
-                    <Code language="tsx">
-{`import { Button } from "css-materials";
+                <div className="space-y-10">
+                    <Card title={t.installation}>
+                        <p>{t.installationDesc}</p>
+                        <Code>npm install css-materials</Code>
+                    </Card>
+                    <Card title={t.styling}>
+                        <p>{t.stylingDesc}</p>
+                        <Code language="tsx">{`import 'css-materials/dist/styles.css';`}</Code>
+                    </Card>
+                    <Card title={t.finished}>
+                        <p>{t.finishedDesc}</p>
+                        <Code language="tsx">
+    {`import { Button } from "css-materials";
 
-const App = () => {
-    return (
-        <Button>This is Button!</Button>
-    )
-}
+    const App = () => {
+        return (
+            <Button>This is Button!</Button>
+        )
+    }
 
-export default App;
-`}</Code>
-                </Card>
+    export default App;
+    `}</Code>
+                    </Card>
+                </div>
+                <Footer />
             </div>
-        </Body>
+        </div>
     );
 };
 

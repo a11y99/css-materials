@@ -22,7 +22,7 @@ export default function Home() {
           </div>
           <div className="space-x-2.5 flex justify-center">
             <Link href="/docs/getting-started"><Button text="Get Started" variant='primary' /></Link>
-            <Link href="https://github.com/hn-104/css-materials"><Button text="GitHub" variant='secondary' icon={<FaGithub className="text-lg" />} /></Link>
+            <Link href="https://github.com/hn-104/css-materials"><Button text="GitHub" variant='secondary' icon={<FaGithub />} /></Link>
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ import PreviewAreaH from '@/components/PreviewAreaH';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import { FaArrowAltCircleRight, FaArrowRight, FaPhone, FaSmile } from 'react-icons/fa';
 import Code from '@/components/Code';
+import Sidebar from '@/components/SideBar';
+import Footer from '@/components/Footer';
 
 const texts = {
     en: {
@@ -54,95 +56,97 @@ const Components = () => {
     const t = texts[language];
 
     return (
-        <Body>
+        <div className="flex">
             <Header />
-            <div className="mt-20 mb-10 flex flex-col">
-                <h1 className="text-[32px] font-bold mb-[12.5px]">Button</h1>
-                <div>
-                    <button
-                        className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('en')}
-                    >
-                        English
-                    </button>
-                    <button
-                    className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#2da0ff] text-white' : 'bg-gray-100'}`}
-                        onClick={() => setLanguage('jp')}
-                    >
-                        日本語
-                    </button>
-                </div>
+            <div className="w-[25%] hidden md:block">
+                <Sidebar />
             </div>
-            <div className="space-y-5">
-                <Card title={t.overview}>
-                    {t.overviewDesc}
-                </Card>
-                <Card title={t.import}>
-                    <Code language='tsx'>{`import { Button } from "css-materials";`}</Code>
-                </Card>
-                <Card title={t.usage}>
-                    <PreviewAreaH>
-                        <Button text="This is Button" />
-                    </PreviewAreaH>
-                    <Code language='html'>{`<Button>This is Button</Button>`}</Code>
-                </Card>
-                <Card title={t.variants}>
-                    <p>{t.variantsDesc}</p>
-                    <PreviewAreaH>
-                        <Button text="Primary" variant='primary' />
-                        <Button text="Secondary" variant='secondary' />
-                        <Button text="Danger" variant='danger' />
-                    </PreviewAreaH>
-                    <Code language='html'>
-{`<Button text="Primary" variant='primary' />
-<Button text="Secondary" variant='secondary' />
-<Button text="Danger" variant='danger' />`}
-                    </Code>
-                </Card>
-                <Card title={t.changeSize}>
-                    <p>{t.changeSizeDesc}</p>
-                    <PreviewAreaH>
-                        <Button text="Small" size="small" />
-                        <Button text="Medium" size="medium" />
-                        <Button text="Large" size="large" />
-                    </PreviewAreaH>
-                    <Code language='html'>
-{`<Button size="small">Small</Button>
-<Button size="medium">Medium</Button>
-<Button size="large">Large</Button>`}
-                    </Code>
-                </Card>
-                <Card title={t.changeShape}>
-                    <p>{t.changeShapeDesc}</p>
-                    <PreviewAreaH>
-                        <Button text="Rounded" shape='rounded' />
-                        <Button text="Pill" shape='pill' />
-                        <Button text="Circle" shape='circle' />
-                    </PreviewAreaH>
-                    <Code language='html'>
-{`<Button shape="square">Square</Button>
-<Button shape="rounded">Rounded</Button>
-<Button shape="circular">Circular</Button>`}
-                    </Code>
-                </Card>
-                <Card title={t.changeState}>
-                    <p>{t.changeStateDesc}</p>
-                    <div className="flex border p-2.5 rounded-md space-x-2.5 overflow-x-auto whitespace-nowrap">
-                        <Button text="Loading" loading />
+            <div className="w-[90%] mx-auto md:w-[75%] md:px-5">
+                <div className="mt-24 mb-10 flex flex-col">
+                    <h1 className="text-[32px] font-bold mb-[12.5px]">Button</h1>
+                    <div>
+                        <button
+                            className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('en')}
+                        >
+                            English
+                        </button>
+                        <button
+                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
+                            onClick={() => setLanguage('jp')}
+                        >
+                            日本語
+                        </button>
                     </div>
-                    <Code language='html'>{`<Button loading>Loading</Button>`}</Code>
-                </Card>
-                <Card title={t.icon}>
-                    <p>{t.iconDesc}</p>
-                    <PreviewAreaH>
-                        <Button text="Icon Button" icon={<FaSmile />} />
-                    </PreviewAreaH>
-                    <Code language='html'>
-{`<Button colorScheme='green' leftIcon={<FaPhone />}>Left Icon</Button>
-<Button rightIcon={<FaArrowRight />}>Right Icon</Button>`}</Code>
-                </Card>
+                </div>
+                <div className="space-y-10">
+                    <Card title={t.overview}>
+                        {t.overviewDesc}
+                    </Card>
+                    <Card title={t.import}>
+                        <Code language='tsx'>{`import { Button } from "css-materials";`}</Code>
+                    </Card>
+                    <Card title={t.usage}>
+                        <PreviewAreaH>
+                            <Button text="Button" />
+                        </PreviewAreaH>
+                        <Code language='tsx'>{`<Button text='Button' />`}</Code>
+                    </Card>
+                    <Card title={t.variants}>
+                        <p>{t.variantsDesc}</p>
+                        <PreviewAreaH>
+                            <Button text="Primary" variant='primary' />
+                            <Button text="Secondary" variant='secondary' />
+                            <Button text="Danger" variant='danger' />
+                        </PreviewAreaH>
+                        <Code language='tsx'>{`<Button text='Primary' variant='primary' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Secondary' variant='secondary' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Danger' variant='danger' />`}</Code>
+                    </Card>
+                    <Card title={t.changeSize}>
+                        <p>{t.changeSizeDesc}</p>
+                        <PreviewAreaH>
+                            <Button text="Small" size="small" />
+                            <Button text="Medium" size="medium" />
+                            <Button text="Large" size="large" />
+                        </PreviewAreaH>
+                        <Code language='tsx'>{`<Button text='Small' size='small' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Medium' size='medium' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Large' size='large' />`}</Code>
+                    </Card>
+                    <Card title={t.changeShape}>
+                        <p>{t.changeShapeDesc}</p>
+                        <PreviewAreaH>
+                            <Button text="Rounded" shape='rounded' />
+                            <Button text="Pill" shape='pill' />
+                            <Button text="Circle" shape='circle' />
+                        </PreviewAreaH>
+                        <Code language='tsx'>{`<Button text='Rounded' shape='rounded' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Pill' shape='pill' />`}</Code>
+                        <Code language='tsx'>{`<Button text='Circle' shape='circle' />`}</Code>
+                    </Card>
+                    <Card title={t.changeState}>
+                        <p>{t.changeStateDesc}</p>
+                        <div className="flex border p-2.5 rounded-md space-x-2.5 overflow-x-auto whitespace-nowrap">
+                            <Button text="Loading" loading />
+                            <Button text="Loading" variant='secondary' loading />
+                            <Button text="Loading" variant='danger' loading />
+                        </div>
+                        <Code language='tsx'>{`<Button text='Loading' loading />`}</Code>
+                        <Code language='tsx'>{`<Button text='Loading' variant='secondary' loading />`}</Code>
+                        <Code language='tsx'>{`<Button text='Loading' variant='danger' loading />`}</Code>
+                    </Card>
+                    <Card title={t.icon}>
+                        <p>{t.iconDesc}</p>
+                        <PreviewAreaH>
+                            <Button text="Icon Button" icon={<FaSmile />} />
+                        </PreviewAreaH>
+                        <Code language='tsx'>{`<Button text="Icon Button" icon={<FaSmile />} />`}</Code>
+                    </Card>
+                </div>
+                <Footer />
             </div>
-        </Body>
+        </div>
     );
 };
 
