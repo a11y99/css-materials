@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from './Spinner';
 
 type ButtonProps = {
     colorScheme?: string;
@@ -35,7 +34,6 @@ const Button: React.FC<ButtonProps> = ({
             onClick={onClick}
             disabled={loading || disabled}
         >
-            {loading && <Spinner />}
             {!loading && leftIcon && <span className="left-icon">{leftIcon}</span>}
             {children}
             {!loading && rightIcon && <span className="right-icon">{rightIcon}</span>}
