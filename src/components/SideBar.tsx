@@ -13,14 +13,14 @@ const Sidebar: React.FC = () => {
                         {item.href ? (
                             <Link
                                 href={item.href}
-                                className={`flex items-center text-sm ${item.size === 'large' ? 'font-semibold' : ''}`}
+                                className={`flex items-center ${item.size === 'large' ? 'font-semibold' : ''}`}
                             >
                                 {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                 {item.name}
                             </Link>
                         ) : (
                             <div
-                                className={`flex items-center text-sm ${item.size === 'large' ? 'font-semibold' : ''}`}
+                                className={`flex items-center ${item.size === 'large' ? 'font-semibold' : ''}`}
                             >
                                 {item.icon && <span className="mr-2.5">{item.icon}</span>}
                                 {item.name}
