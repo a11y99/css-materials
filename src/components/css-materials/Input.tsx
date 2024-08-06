@@ -17,6 +17,7 @@ interface InputProps {
     disabled?: boolean;
     icon?: React.ReactNode;
     clearable?: boolean;
+    size?: 'small' | 'medium' | 'large';
     className?: string;
 }
 
@@ -37,6 +38,7 @@ const Input: React.FC<InputProps> = ({
     disabled = false,
     icon,
     clearable = false,
+    size = 'medium',
     className = '',
 }) => {
     const [inputValue, setInputValue] = useState(value || '');
@@ -94,7 +96,7 @@ const Input: React.FC<InputProps> = ({
                     pattern={pattern}
                     readOnly={readOnly}
                     disabled={disabled}
-                    className="input-element"
+                    className={`input-element ${size}`}
                 />
                 {clearable && inputValue && (
                     <button type="button" className="input-clear-button" onClick={handleClear}>

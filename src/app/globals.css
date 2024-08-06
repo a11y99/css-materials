@@ -103,58 +103,6 @@
   border: 1px solid rgba(245, 158, 11, .075);
 }
 
-.input-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-.input-wrapper .input-icon + .input-element {
-  padding-left: 2.25rem;
-}
-.input-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-.input-icon {
-  position: absolute;
-  left: 0.75rem;
-}
-.input-element {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.25s;
-}
-.input-element:focus {
-  border-color: #007bff;
-}
-.input-clear-button {
-  position: absolute;
-  right: 0.75rem;
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  outline: none;
-}
-.input-clear-button:focus {
-  color: #007bff;
-}
-.input-container.focused .input-element {
-  border-color: #007bff;
-}
-.input-container.error .input-element {
-  border-color: #ff0000;
-}
-.input-error-message {
-  color: #ff0000;
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-}
-
 /* modal */
 .modal-overlay {
   position: fixed;
@@ -524,6 +472,7 @@ input[type="checkbox"] {
 .button.primary {
   background-color: #007bff;
   color: white;
+  border: 1px solid #007bff;
 }
 .button.secondary {
   background-color: #fff;
@@ -576,6 +525,71 @@ input[type="checkbox"] {
 .loading-icon.danger {
   border: 2px solid rgba(220, 53, 69, .5);
   border-left-color: #dc3545;
+}
+
+/* input */
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.input-wrapper .input-icon + .input-element {
+  padding-left: 2.25rem;
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+  color: rgba(0, 0, 0, .5);
+}
+.input-element {
+  width: 100%;
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, .05);
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.25s;
+  box-shadow: 0px 2.5px 2.5px 0px rgba(0, 0, 0, .05);
+}
+.input-element.small {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+.input-element.large {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+.input-element:focus {
+  border-color: #007bff;
+  box-shadow: 0px 0px 2.5px 2.5px rgba(0, 123, 255, .05);
+}
+.input-clear-button {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  outline: none;
+}
+.input-clear-button:focus {
+  color: #007bff;
+}
+.input-container.focused .input-element {
+  border-color: #007bff;
+}
+.input-container.error .input-element {
+  border-color: #ff0000;
+}
+.input-error-message {
+  color: #ff0000;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
 }
 
 @keyframes spin {
