@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/atom-one-dark.css';
+// import 'highlight.js/styles/docco.css';
+import 'highlight.js/styles/docco.css';
 
 type CodeProps = {
     children: string;

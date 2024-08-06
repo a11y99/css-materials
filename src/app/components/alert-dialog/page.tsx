@@ -2,58 +2,38 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
-import Body from '@/components/Body';
-import { FiTrash2, FiAlertCircle, FiCheck } from 'react-icons/fi';
 import Code from '@/components/Code';
 import AlertDialog from '@/components/css-materials/AlertDialog';
 import Button from '@/components/css-materials/Button';
-import CodeBlock from '@/components/CodeBlock';
 import Sidebar from '@/components/SideBar';
 import Footer from '@/components/Footer';
 import PreviewArea from '@/components/PreviewAreaH';
+import { FaLightbulb, FaRocket } from 'react-icons/fa';
 
 const texts = {
-    en: {
-        overview: "Overview",
-        overviewDesc: "Alert Dialog is a modal window component that displays important information or messages requiring user confirmation.",
-        import: "Import",
-        usage: "Usage",
-    },
-    jp: {
-        overview: "概要",
-        overviewDesc: "Alert Dialogは、ユーザーに重要な情報や確認が必要なメッセージを表示するためのモーダルウィンドウコンポーネントです。",
-        import: "インポート",
-        usage: "使い方",
-    }
+    overview: "Alert Dialog is a component that displays important information requiring user acknowledgment.",
+    import: "Import",
+    usage: "Usage",
 };
 
 const Components = () => {
-    const [language, setLanguage] = useState<'en' | 'jp'>('en');
-
-    const t = texts[language];
+    const t = texts;
 
     const [isDialogOpen, setIsDialogOpen] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleDialogClose = () => {
-        setIsDialogOpen(false);
-    };
+    const [isCustomDialogOpen, setIsCustomDialogOpen] = useState(false);
 
     const handleDialogOpen = () => {
         setIsDialogOpen(true);
     }
-
-    const handleButtonClick = () => {
-        setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
-            setIsDialogOpen(true);
-        }, 2000);
+    const handleDialogClose = () => {
+        setIsDialogOpen(false);
     };
 
-    const showAlert = () => {
-        alert("Unsaved changes will be lost.");
-        handleDialogClose();
+    const handleCustomDialogOpen = () => {
+        setIsCustomDialogOpen(true);
+    }
+    const handleCustomDialogClose = () => {
+        setIsCustomDialogOpen(false);
     };
 
     return (
@@ -63,48 +43,69 @@ const Components = () => {
                 <Sidebar />
             </div>
             <div className="w-[90%] mx-auto md:w-[75%] md:px-5">
-                <div className="mt-24 mb-10 flex flex-col">
+                <div className="mt-[100px] mb-10 flex flex-col">
                     <h1 className="text-[32px] font-bold mb-[12.5px]">Alert Dialog</h1>
-                    <div>
-                        <button
-                            className={`px-4 py-2 font-bold rounded-l-md ${language === 'en' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
-                            onClick={() => setLanguage('en')}
-                        >
-                            English
-                        </button>
-                        <button
-                        className={`px-4 py-2 font-bold rounded-r-md ${language === 'jp' ? 'bg-[#007bff] text-white' : 'bg-gray-100'}`}
-                            onClick={() => setLanguage('jp')}
-                        >
-                            日本語
-                        </button>
-                    </div>
+                    <p>{t.overview}</p>
                 </div>
                 <div className="space-y-10">
-                    <Card title={t.overview}>
-                        <p>{t.overviewDesc}</p>
-                    </Card>
-                    <Card title={t.import}>
-                        <Code language='ts'>{`import { AlertDialog } from "css-materials";`}</Code>
-                    </Card>
-                    <Card title={t.usage}>
-                        <PreviewArea>
-                            <Button text="Open Alert Dialog" onClick={handleDialogOpen}  />
-                        </PreviewArea>
-                    <Code language='tsx'>
-{`<AlertDialog
-    isOpen={isDialogOpen}
-    onClose={handleDialogClose}
-    title="Unsaved Changes"
-    message="You have unsaved changes. Are you sure you want to leave without saving?"
-/>`}</Code>
-                    <AlertDialog
-                        isOpen={isDialogOpen}
-                        onClose={handleDialogClose}
-                        title="Unsaved Changes"
-                        message="You have unsaved changes. Are you sure you want to leave without saving?"
-                    />
-                    </Card>
+                <div className="space-y-5">
+                        <h2 className="text-2xl font-medium">Import</h2>
+                        <Code language='tsx'>{`import { AlertDialog } from "css-materials";`}</Code>
+                    </div>
+                    <div className="space-y-5">
+                        <h2 className="text-2xl font-medium">Usage</h2>
+                        <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap">
+                            <Button onClick={handleDialogOpen}>Open Alert Dialog</Button>
+                            <AlertDialog
+                            isOpen={isCustomDialogOpen}
+                            onClose={handleCustomDialogClose}
+                            title="Unsaved Changes"
+                            message="You have unsaved changes. Are you sure you want to leave without saving?"
+                        />
+                        </div>
+                        <Code language='tsx'>
+{`const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+return (
+    <>
+        <AlertDialog
+            isOpen={isDialogOpen}
+            onClose={handleDialogClose}
+            title="Unsaved Changes"
+            message="You have unsaved changes. Are you sure you want to leave without saving?"
+        />
+    </>
+)`}</Code>
+                    </div>
+                    <div className="space-y-5">
+                        <h2 className="text-2xl font-medium">Custom Footer</h2>
+                        <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap">
+                            <Button onClick={handleDialogOpen} icon={<FaLightbulb />}>Open Idea Dialog</Button>
+                            <AlertDialog
+                                isOpen={isDialogOpen}
+                                onClose={handleDialogClose}
+                                title="New Idea"
+                                message="You have a brilliant new idea to review."
+                                confirmText='Review Now'
+                                cancelText='Later'
+                            />
+                        </div>
+                        <Code language='tsx'>
+{`const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+return (
+    <>
+        <AlertDialog
+            isOpen={isDialogOpen}
+            onClose={handleDialogClose}
+            title="New Idea"
+            message="You have a brilliant new idea to review."
+            confirmText='Review Now'
+            cancelText='Later'
+        />
+    </>
+)`}</Code>
+                    </div>
                 </div>
                 <Footer />
             </div>

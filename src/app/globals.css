@@ -227,6 +227,9 @@ input[type="checkbox"] {
   border-radius: 0.375rem;
   overflow: hidden;
 }
+.code-block {
+  overflow: hidden;
+}
 
 /* card */
 .card-header {
