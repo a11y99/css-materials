@@ -25,40 +25,40 @@ export default function Header() {
                     </div>
                     <div className="hidden md:flex ml-auto space-x-5 items-center">
                         <Link href="/docs/getting-started">Getting Started</Link>
-                        <Link href="/docs/getting-started">Components</Link>
+                        <Link href="/components/alert-dialog">Components</Link>
                         <Link href="https://github.com/hn-104/css-materials"><Button variant="secondary" size="small" icon={<FiStar />}>Star on GitHub</Button></Link>
                     </div>
                 </div>
             </div>
-            <div className={`fixed left-0 top-[49px] w-full h-[calc(100vh-49px)] bg-opacity-[75%] backdrop-blur bg-white z-50 md:hidden transition-opacity duration-150 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <div className="flex flex-col border-t px-5 pt-3.5 pb-5 space-y-3.5">
+            <div className={`fixed left-0 top-[49px] w-full h-[calc(100vh-49px)] space-y-5 bg-opacity-[75%] px-5 backdrop-blur bg-white z-50 md:hidden transition-opacity duration-150 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <div className="flex flex-col border-t border-white pt-3.5">
                     <div className="grid grid-cols-2 gap-2.5">
                         <Link href="https://github.com/hn-104/css-materials" className="w-full flex flex-col"><Button size="small" icon={<FiStar />} text="Star on GitHub" /></Link>
                         <Link href="/docs/getting-started" className="w-full flex flex-col"><Button variant="secondary" size="small" text="Getting Started" /></Link>
                         <Link href="/components/alert-dialog" className="w-full flex flex-col"><Button variant="secondary" size="small" text="Components" /></Link>
                     </div>
                 </div>
-                <div className="px-5">
+                <div>
                     <nav>
                         <ul className="space-y-2.5">
                             {linkItems.map((item) => (
                                 <li key={item.name}>
-                                    {item.href ? (
-                                        <Link
-                                            href={item.href}
-                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
-                                        >
-                                        {item.icon && <span className="mr-2.5">{item.icon}</span>}
-                                        {item.name}
-                                        </Link>
-                                    ) : (
-                                        <div
-                                            className={`flex items-center ${item.size === 'large' ? 'text-md' : 'text-sm'}`}
-                                        >
-                                        {item.icon && <span className="mr-2.5">{item.icon}</span>}
-                                        {item.name}
-                                        </div>
-                                    )}
+                            {item.href ? (
+                                <Link
+                                    href={item.href}
+                                    className={`flex items-center ${item.size === 'large' ? 'font-semibold' : ''}`}
+                                >
+                                    {item.icon && <span className="mr-2.5">{item.icon}</span>}
+                                    {item.name}
+                                </Link>
+                            ) : (
+                                <div
+                                    className={`flex items-center ${item.size === 'large' ? 'font-semibold' : ''}`}
+                                >
+                                    {item.icon && <span className="mr-2.5">{item.icon}</span>}
+                                    {item.name}
+                                </div>
+                            )}
                                 </li>
                             ))}
                         </ul>

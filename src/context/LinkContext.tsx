@@ -9,7 +9,8 @@ type LinkItem = {
 };
 
 const linkItems: LinkItem[] = [
-    { name: 'Getting Started', href: '/docs/getting-started', icon: <FiBookOpen />, size: 'large' },
+    { name: 'Getting Started', icon: <FiBookOpen />, size: 'large' },
+    { name: 'Installation', href: '/docs/getting-started', size: 'small' },
     { name: 'Components', icon: <FiCode />, size: 'large' },
     // Components
     { name: 'AlertDialog', href: '/components/alert-dialog', size: 'small' },
@@ -17,8 +18,6 @@ const linkItems: LinkItem[] = [
     { name: 'Input', href: '/components/input', size: 'small' },
     { name: 'Table', href: '/components/table', size: 'small' },
     { name: 'Tabs', href: '/components/tabs', size: 'small' },
-    //
-    { name: 'FAQ', href: '/faq', icon: <FiHelpCircle />, size: 'large' },
 ];
 
 const LinkContext = createContext<LinkItem[]>(linkItems);
