@@ -1,5 +1,5 @@
 import React, { createContext, useContext, ReactNode } from 'react';
-import { FiBookOpen, FiCode, FiSettings, FiHelpCircle } from 'react-icons/fi';
+import { FiBookOpen, FiCode } from 'react-icons/fi';
 
 type LinkItem = {
     name: string;
@@ -14,6 +14,7 @@ const linkItems: LinkItem[] = [
     { name: 'Components', icon: <FiCode />, size: 'large' },
     // Components
     { name: 'AlertDialog', href: '/components/alert-dialog', size: 'small' },
+    { name: 'Avatar', href: '/components/avatar', size: 'small' },
     { name: 'Button', href: '/components/button', size: 'small' },
     { name: 'Input', href: '/components/input', size: 'small' },
     { name: 'Table', href: '/components/table', size: 'small' },

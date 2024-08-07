@@ -3,9 +3,9 @@ import React from 'react';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-blue-0 border-t px-10 md:px-0 py-10 mt-16">
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div className="md:ml-10">
+        <footer className="border-t px-10 md:px-0 py-10 mt-16">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:pl-10">
+                <div>
                     <img src="/media_kit/css-materials.png" className="mb-2.5 w-[175px]" />
                     <p className="opacity-50 text-sm">&copy; 2024 hono. All rights reserved.</p>
                 </div>

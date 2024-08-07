@@ -12,8 +12,6 @@ import { FaLightbulb, FaRocket } from 'react-icons/fa';
 
 const texts = {
     overview: "Alert Dialog is a component that displays important information requiring user acknowledgment.",
-    import: "Import",
-    usage: "Usage",
 };
 
 const Components = () => {

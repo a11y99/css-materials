@@ -17,7 +17,7 @@ export default function Header() {
                     <div className="min-w-[175px] max-w-[175px] md:w-auto">
                         <Link href="/"><img src="/media_kit/css-materials.png" alt="Logo" /></Link>
                     </div>
-                    <Input placeholder="Type a word to search the document..." icon={<FiSearch />} className="w-full hidden md:block" size="small" />
+                    <Input placeholder="Type a word to search the document..." icon={<FiSearch />} className="w-full hidden md:block custom-input" size="small" />
                     <div className="flex md:hidden">
                         <button onClick={() => setIsOpen(!isOpen)}>
                             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}

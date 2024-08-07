@@ -34,7 +34,7 @@ const Code: React.FC<CodeProps> = ({ children, language = 'javascript', highligh
     };
 
     return (
-        <div className="code">
+        <div className="code overflow-hidden rounded">
             <pre className="hljs">
                 <code className={`language-${language}`}>
                     {children}
