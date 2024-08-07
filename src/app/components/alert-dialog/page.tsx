@@ -12,6 +12,7 @@ import { FaLightbulb, FaRocket } from 'react-icons/fa';
 
 const texts = {
     overview: "Alert Dialog is a component that displays important information requiring user acknowledgment.",
+    onConfirm: "You can set the processing that occurs when the Confirm button is clicked.",
 };
 
 const Components = () => {
@@ -19,20 +20,33 @@ const Components = () => {
 
     const [isDialogOpen, setIsDialogOpen] = useState(false);
     const [isCustomDialogOpen, setIsCustomDialogOpen] = useState(false);
+    const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
 
     const handleDialogOpen = () => {
         setIsDialogOpen(true);
-    }
+    };
     const handleDialogClose = () => {
         setIsDialogOpen(false);
     };
 
     const handleCustomDialogOpen = () => {
         setIsCustomDialogOpen(true);
-    }
+    };
     const handleCustomDialogClose = () => {
         setIsCustomDialogOpen(false);
     };
+
+    const handleConfirmDialogOpen = () => {
+        setIsConfirmDialogOpen(true);
+    };
+    const handleConfirmDialogClose = () => {
+        setIsConfirmDialogOpen(false);
+    };
+
+    const showAlert = () => {
+        alert("The Delete button has been clicked!");
+    };
+
 
     return (
         <div className="flex">
@@ -55,8 +69,8 @@ const Components = () => {
                         <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap">
                             <Button onClick={handleDialogOpen}>Open Alert Dialog</Button>
                             <AlertDialog
-                            isOpen={isCustomDialogOpen}
-                            onClose={handleCustomDialogClose}
+                            isOpen={isDialogOpen}
+                            onClose={handleDialogClose}
                             title="Unsaved Changes"
                             message="You have unsaved changes. Are you sure you want to leave without saving?"
                         />
@@ -78,10 +92,10 @@ return (
                     <div className="space-y-5">
                         <h2 className="text-2xl font-medium">Custom Footer</h2>
                         <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap">
-                            <Button onClick={handleDialogOpen} icon={<FaLightbulb />}>Open Idea Dialog</Button>
+                            <Button onClick={handleCustomDialogOpen} icon={<FaLightbulb />}>Open Idea Dialog</Button>
                             <AlertDialog
-                                isOpen={isDialogOpen}
-                                onClose={handleDialogClose}
+                                isOpen={isCustomDialogOpen}
+                                onClose={handleCustomDialogClose}
                                 title="New Idea"
                                 message="You have a brilliant new idea to review."
                                 confirmText='Review Now'
@@ -100,6 +114,41 @@ return (
             message="You have a brilliant new idea to review."
             confirmText='Review Now'
             cancelText='Later'
+        />
+    </>
+)`}</Code>
+                    </div>
+
+                    <div className="space-y-5">
+                        <h2 className="text-2xl font-medium">onConfirm</h2>
+                        <p>{t.onConfirm}</p>
+                        <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap">
+                            <Button onClick={handleConfirmDialogOpen}>Open Alert Dialog</Button>
+                            <AlertDialog
+                                isOpen={isConfirmDialogOpen}
+                                onClose={handleConfirmDialogClose}
+                                title="Delete Item"
+                                message="Are you sure you want to delete this item? This action cannot be undone."
+                                confirmText='Delete'
+                                cancelText='Cancel'
+                                onConfirm={showAlert}
+                            />
+                        </div>
+                        <Code language='tsx'>
+{`const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+const showAlert = () => alert("The Delete button has been clicked!");
+
+return (
+    <>
+        <AlertDialog
+            isOpen={isDialogOpen}
+            onClose={handleDialogClose}
+            title="Delete Item"
+            message="Are you sure you want to delete this item? This action cannot be undone."
+            confirmText='Delete'
+            cancelText='Cancel'
+            onConfirm={showAlert}
         />
     </>
 )`}</Code>

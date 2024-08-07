@@ -6,7 +6,8 @@ import Code from '@/components/Code';
 import Sidebar from '@/components/SideBar';
 import Footer from '@/components/Footer';
 import Input from '@/components/css-materials/Input';
-import { FiEdit, FiSearch, FiUser } from 'react-icons/fi';
+import { FiEdit, FiMail, FiSearch, FiUser } from 'react-icons/fi';
+import { BsEnvelope } from 'react-icons/bs';
 
 const texts = {
     overview: "The Input component provides an interface for users to input information and enables the application to process the submitted data.",
@@ -104,9 +105,9 @@ const Components = () => {
                         <h2 className="text-2xl font-medium">Specify pattern</h2>
                         <p>{t.pattern}</p>
                         <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap space-y-5">
-                            <Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />
+                            <Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" icon={<FiMail />} />
                         </div>
-                        <Code language='html'>{`<Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />`}</Code>
+                        <Code language='html'>{`<Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" icon={<FiMail />} />`}</Code>
                     </div>
                 </div>
                 <Footer />

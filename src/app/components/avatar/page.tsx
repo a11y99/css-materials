@@ -54,6 +54,16 @@ const Components = () => {
 <Avatar name='Ryan Florence' size={64} />`}</Code>
                     </div>
                     <div className="space-y-5">
+                        <h2 className="text-2xl font-medium">Change Shape</h2>
+                        <div className="p-5 border rounded-xl overflow-x-auto flex whitespace-nowrap space-x-5">
+                            <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' shape='circle' />
+                            <Avatar name='Kent Dodds' src='https://bit.ly/kent-c-dodds' shape='square' />
+                        </div>
+                        <Code language='html'>
+{`<Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' shape='circle' />
+<Avatar name='Kent Dodds' src='https://bit.ly/kent-c-dodds' shape='square' />`}</Code>
+                    </div>
+                    <div className="space-y-5">
                         <h2 className="text-2xl font-medium">Customize the fallback avatar</h2>
                         <div className="p-5 border rounded-xl overflow-x-auto flex whitespace-nowrap space-x-5">
                             <Avatar name="Mark Erikson" size="small" bgColor='#FF5733' shape='square' />
