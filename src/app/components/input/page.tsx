@@ -13,13 +13,6 @@ const texts = {
     pattern: "You can specify a pattern using regular expressions.",
 };
 
-const highlights = [
-    { text: '{', color: '#000' },
-];
-const pattern = [
-    { text: '{', color: '#219161' },
-];
-
 const Components = () => {
     const t = texts;
 
@@ -102,7 +95,7 @@ const Components = () => {
                             <Input placeholder='Enter Text' size='medium' icon={<FiEdit />} />
                             <Input placeholder='Enter username' size='large' icon={<FiUser />} />
                         </div>
-                        <Code language='html' highlights={highlights}>
+                        <Code language='html'>
 {`<Input placeholder='Search' size='small' icon={<FiSearch />} />
 <Input placeholder='Enter Text' size='medium' icon={<FiEdit />} />
 <Input placeholder='Enter username' size='large' icon={<FiUser />} />`}</Code>
@@ -113,7 +106,7 @@ const Components = () => {
                         <div className="p-5 border rounded-xl overflow-x-auto whitespace-nowrap space-y-5">
                             <Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />
                         </div>
-                        <Code language='html' highlights={pattern}>{`<Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />`}</Code>
+                        <Code language='html'>{`<Input placeholder="Type your email address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" errorMessage="Invalid email address" />`}</Code>
                     </div>
                 </div>
                 <Footer />

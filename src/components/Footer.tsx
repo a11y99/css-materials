@@ -7,7 +7,8 @@ const Footer: React.FC = () => {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:pl-10">
                 <div>
                     <img src="/media_kit/css-materials.png" className="mb-2.5 w-[175px]" />
-                    <p className="opacity-50 text-sm">&copy; 2024 hono. All rights reserved.</p>
+                    <p className="opacity-50 text-sm">Build by <Link className="underline" href="https://x.com/m_hono_104">hono.</Link></p>
+                    <p className="opacity-50 text-sm">The source code is available on <Link className="underline" href="https://github.com/hn-104/css-materials">GitHub</Link>.</p>
                 </div>
                 <div>
                     <h2 className="text-xl font-bold mb-5">Support</h2>

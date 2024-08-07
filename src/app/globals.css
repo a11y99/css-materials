@@ -336,23 +336,26 @@ input[type="checkbox"] {
   display: block;
 }
 
-/* icon */
+/* avatar */
 .avatar {
   display: inline-block;
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
-  border-radius: 50%;
-  background-color: #ccc;
   text-align: center;
   font-family: Arial, sans-serif;
   color: white;
+}
+.avatar-circle {
+  border-radius: 99em;
+}
+.avatar-square {
+  border-radius: 5px;
 }
 .avatar-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
 .avatar-initials,
 .avatar-icon {
@@ -362,7 +365,6 @@ input[type="checkbox"] {
   height: 100%;
   width: 100%;
   font-size: 1em;
-  border-radius: 50%;
 }
 .avatar-small {
   width: 40px;

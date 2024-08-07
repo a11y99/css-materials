@@ -12,10 +12,6 @@ const texts = {
     loading: "To apply a loading animation, set the loading attribute to true.",
 };
 
-const highlights = [
-    { text: '{', color: '#000' },
-];
-
 const Components = () => {
     const t = texts;
 
@@ -84,7 +80,7 @@ const Components = () => {
                             <Button variant='secondary' size='small' icon={<FaRocket />}>発射</Button>
                             <Button variant='danger' icon={<FaDragon />}>咆哮</Button>
                         </div>
-                        <Code language='html' highlights={highlights}>
+                        <Code language='html'>
 {`<Button variant='secondary' size='small' icon={<FaRocket />}>発射</Button>
 <Button variant='danger' icon={<FaDragon />}>咆哮</Button>`}</Code>
                     </div>
