@@ -1,6 +1,5 @@
 "use client"
 import React, { useState, useMemo } from 'react';
-import Input from '@/components/Input';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Body from '@/components/Body';

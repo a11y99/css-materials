@@ -5,7 +5,6 @@ import Button from '@/components/css-materials/Button';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
 import Card from '@/components/Card';
-import Input from '@/components/Input';
 
 export default function Home() {
   return (
