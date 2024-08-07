@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import Button from '@/components/Button';
+import Button from '@/components/css-materials/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
@@ -37,7 +37,7 @@ const ModalComponents = () => {
                 {/* Usage Section */}
                 <Card title="Usage">
                     <p>This is a basic usage example of the Modal component.</p>
-                    <Button colorScheme="blue" onClick={handleOpenModal}>
+                    <Button onClick={handleOpenModal}>
                         Open Modal
                     </Button>
                     <Modal
@@ -86,7 +86,7 @@ export default Example;`}
                 {/* Modal with Footer Section */}
                 <Card title="Modal with Custom Footer">
                     <p>This example shows the Modal component with a custom footer.</p>
-                    <Button colorScheme="blue" onClick={handleOpenCustomModal}>
+                    <Button onClick={handleOpenCustomModal}>
                         Open Modal with Footer
                     </Button>
                     <Modal
@@ -94,14 +94,13 @@ export default Example;`}
                         onClose={handleCloseCustomModal}
                         title="Modal with Custom Footer"
                         footer={
-                            <>
-                                <Button colorScheme="gray" onClick={handleCloseCustomModal}>Cancel</Button>
-                                <Button colorScheme="green" onClick={handleCloseCustomModal} className="ml-2.5">OK</Button>
-                            </>
+                            <div className="space-x-2.5">
+                                <Button variant='secondary' onClick={handleCloseCustomModal}>Cancel</Button>
+                                <Button variant='primary' onClick={handleCloseCustomModal}>OK</Button>
+                            </div>
                         }
                     >
                         <p>This is the content of the modal with a custom footer.</p>
-                        <img src="/chubbs/0.svg" />
                     </Modal>
                     <Code language="javascript">
 {`import React, { useState } from 'react';

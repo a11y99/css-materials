@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiX } from "react-icons/fi";
-import Button from './Button';
+import Button from './css-materials/Button';
 
 type ModalProps = {
     visible: boolean;
@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ visible, onClose, title, children, footer
             {children}
             </div>
             <div className="modal-footer">
-            {footer ? footer : <Button colorScheme="blue" onClick={onClose}>Close</Button>}
+            {footer ? footer : <Button variant='secondary' onClick={onClose}>Close</Button>}
             </div>
         </div>
         </div>

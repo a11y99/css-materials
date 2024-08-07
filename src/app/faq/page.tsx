@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import Button from '@/components/Button';
+import Button from '@/components/css-materials/Button';
 import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Code from '@/components/Code';
@@ -8,6 +8,7 @@ import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
 import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
+import { FiGithub } from 'react-icons/fi';
 
 const texts = {
     en: {
@@ -77,14 +78,14 @@ const FAQ = () => {
                 </Card>
                 <Card title={t.suggestions}>
                     <p>{t.suggestionsDesc}</p>
-                    <Link href="https://github.com/hn-104/css-materials/issues/new"><Button colorScheme='gray'><FaGithub className="text-lg mr-2.5" />{t.button}</Button></Link>
+                    <Link href="https://github.com/hn-104/css-materials/issues/new"><Button variant='secondary' icon={<FiGithub />}>{t.button}</Button></Link>
                 </Card>
                 <Card title={t.restrictions}>
                     <p>{t.restrictionsDesc}</p>
                 </Card>
                 <Card title={t.support}>
                     <p>{t.supportDesc}</p>
-                    <Link href="https://github.com/hn-104/css-materials/issues/new"><Button colorScheme='gray'><FaGithub className="text-lg mr-2.5" />{t.button}</Button></Link>
+                    <Link href="https://github.com/hn-104/css-materials/issues/new"><Button variant='secondary' icon={<FiGithub />}>{t.button}</Button></Link>
                 </Card>
                 <Card title={t.updates}>
                     <p>{t.updatesDesc}</p>
