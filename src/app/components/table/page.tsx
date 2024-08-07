@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import Card from '@/components/Card';
 import Body from '@/components/Body';
 import PreviewAreaH from '@/components/PreviewAreaH';
-import Input from '@/components/Input';
 import { FaExternalLinkAlt, FaKey, FaMailBulk } from 'react-icons/fa';
 import PreviewAreaV from '@/components/PreviewAreaV';
 import Link from 'next/link';
